@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TakeDamage : MonoBehaviour
+public class EnemyArrivalChecker : MonoBehaviour
 {
-    // public float health;
-    // public float maxHealth;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +18,9 @@ public class TakeDamage : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag == "Projectile")
+        if(collision.transform.tag == "Enemy")
         {
-            Debug.Log("Got Hit!");
-            Destroy(this.gameObject);
+            Debug.Log("GAME OVER :(");
         }
     }
 }
