@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5225749912901630841}
   - component: {fileID: 6829395581868336896}
   - component: {fileID: 8339841225567186965}
+  - component: {fileID: 4117776022807290276}
   m_Layer: 16
   m_Name: pea
   m_TagString: Projectile
@@ -114,7 +115,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 81975
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -134,3 +135,30 @@ CircleCollider2D:
   m_Offset: {x: -0.0067076683, y: 0}
   serializedVersion: 2
   m_Radius: 0.19389772
+--- !u!50 &4117776022807290276
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783118271938368534}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

@@ -23,7 +23,6 @@ public class TakeDamage : MonoBehaviour
     {
         if(collision.transform.tag == "Projectile")
         {
-            Debug.Log("Got Hit!");
             Destroy(this.gameObject);
         }
     }
