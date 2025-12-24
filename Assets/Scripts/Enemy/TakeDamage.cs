@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TakeDamage : MonoBehaviour
 {
+    // public float health;
+    // public float maxHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,13 @@ public class TakeDamage : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.transform.tag == "Projectile")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
