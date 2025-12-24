@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Base
+  - Enemy/Slime
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -21,8 +23,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Enemies
+  - Projectiles
   - 
   - 
   - 

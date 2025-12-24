@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5225749912901630841}
   - component: {fileID: 6829395581868336896}
   - component: {fileID: 8339841225567186965}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: pea
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
