@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour
 {
+    
     public float speed = 10.0f;
 
-    Rigidbody2D rb;
-
+    private Rigidbody2D rb;
     private Transform target;
-
+    
     // Start is called before the first frame update
     void Start()
     {

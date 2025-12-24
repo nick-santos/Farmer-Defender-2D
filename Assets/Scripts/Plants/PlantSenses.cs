@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlantSenses : MonoBehaviour
 {
-    public ShootingProjectile parent;
+    public Shooter parent;
 
     // Start is called before the first frame update
     void Start()
     {
         Transform parentTransform = transform.parent; // entrega um transform
-        parent = parentTransform.GetComponent<ShootingProjectile>(); // entrega um componente
+        parent = parentTransform.GetComponent<Shooter>(); // entrega um componente
     }
 
     void OnTriggerEnter2D(Collider2D collision)

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class ShootingProjectile : MonoBehaviour
+public class Shooter : MonoBehaviour
 {
     [Header("References")]
-    public Transform muzzleRotationPoint;
+    public Transform muzzlePoint;
     public GameObject projectile;
     public LayerMask enemyMask;
 
@@ -15,12 +15,15 @@ public class ShootingProjectile : MonoBehaviour
 
     [Header("Attribute")]
     public float targetInRange = 5f;
+    public float rotationSpeed = 200f;
+    public float projPerSec = 1f;
 
     private Transform target;
+    // Vector3 spawnPos;
+    private float timeUntilFire;
 
-    private float startDelay = 2;
-    private float coolDown = 2f;
-    Vector3 spawnPos;
+    // private float startDelay = 2;
+    // private float coolDown = 2f;
     
     private void OnDrawGizmosSelected() 
     {
@@ -31,20 +34,10 @@ public class ShootingProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float spawnPosY = transform.position.y + 0.25f;
-        float spawnPosX = transform.position.x + 0.5f;
-        spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
-        InvokeRepeating("Shoot", startDelay, coolDown);
-    }
-
-    void Shoot ()
-    {
-        if (isSeeing)
-        {
-            GameObject projObj = Instantiate(projectile, spawnPos, Quaternion.identity);
-            ProjectileBehavior projScript = projObj.GetComponent<ProjectileBehavior>();
-            projScript.SetTarget(target);
-        }
+        // float spawnPosY = transform.position.y + 0.25f;
+        // float spawnPosX = transform.position.x + 0.5f;
+        // spawnPos = new Vector3(spawnPosX, spawnPosY, 0);
+        // InvokeRepeating("Shoot", startDelay, coolDown);
     }
     
     // Update is called once per frame
@@ -62,6 +55,23 @@ public class ShootingProjectile : MonoBehaviour
         {
             target = null;
         }
+        else
+        {
+            timeUntilFire += Time.deltaTime;
+
+            if(timeUntilFire >= 1f/projPerSec)
+            {
+                Shoot();
+                timeUntilFire = 0f;
+            }
+        }
+    }
+
+    private void Shoot()
+    {
+        GameObject projObj = Instantiate(projectile, muzzlePoint.position, Quaternion.identity);
+        ProjectileBehavior projScript = projObj.GetComponent<ProjectileBehavior>();
+        projScript.SetTarget(target);
     }
 
     private void FindTarget() 
@@ -87,7 +97,7 @@ public class ShootingProjectile : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
 
         //muzzleRotationPoint.rotation = targetRotation;
-        transform.rotation = targetRotation;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
 
