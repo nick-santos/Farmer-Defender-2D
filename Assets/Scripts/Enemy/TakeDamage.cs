@@ -23,6 +23,7 @@ public class TakeDamage : MonoBehaviour
     {
         if(collision.transform.tag == "Projectile")
         {
+            WaveManager.onEnemyDestroy.Invoke();
             Destroy(this.gameObject);
         }
     }
