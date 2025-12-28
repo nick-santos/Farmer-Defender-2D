@@ -38,7 +38,7 @@ public class WaveManager : MonoBehaviour
 
     void Start()
     {
-        StartWave();
+        StartCoroutine(StartWave());
     }
 
     // Update is called once per frame
@@ -55,6 +55,11 @@ public class WaveManager : MonoBehaviour
             enemiesAlive++;
             timeSinceLastSpawn = 0f;
         }
+
+        if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
+        {
+            EndWave();
+        }
     }
 
     private void EnemyDestroyed()
@@ -62,10 +67,19 @@ public class WaveManager : MonoBehaviour
         enemiesAlive--;
     }
 
-    void StartWave()
+    private IEnumerator StartWave()
     {
+        yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
+    }
+
+    void EndWave()
+    {
+        isSpawning = false;
+        timeSinceLastSpawn = 0f;
+        currentWave++;
+        StartCoroutine(StartWave());
     }
 
     void SpawnEnemy()
