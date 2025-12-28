@@ -5,7 +5,9 @@ using UnityEngine;
 public class ProjectileBehavior : MonoBehaviour
 {
     
+    [Header("Attributes")]
     public float speed = 10.0f;
+    public int projectileDamage = 1;
 
     private Rigidbody2D rb;
     private Transform target;
@@ -32,6 +34,10 @@ public class ProjectileBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.transform.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(projectileDamage);
+        }
         Debug.Log("Hit " + collision.name);
         Destroy(this.gameObject);
     }
