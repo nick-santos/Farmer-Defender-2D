@@ -8,10 +8,12 @@ public class MousePositionBuilder : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Color blockedColor;
+    public GameObject player;
 
     [SerializeField] private bool canBuild;
     private GameObject plant;
     private Color startColor;
+    private float radius = 2f;
 
     void Start()
     {
@@ -37,7 +39,24 @@ public class MousePositionBuilder : MonoBehaviour
     {
         Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPosition.z = 0f;
-        transform.position = mouseWorldPosition;
+        
+        Vector3 playerPos = player.transform.position;
+
+        Vector3 playerToCursor = mouseWorldPosition - playerPos;
+        Vector3 dir = playerToCursor.normalized;
+        Vector3 cursorVector = dir * radius;
+        Vector3 finalPos;
+
+        if(Vector3.Distance(playerPos, mouseWorldPosition) < radius)
+        {
+            finalPos = mouseWorldPosition;
+        }
+        else
+        {
+            finalPos = playerPos + cursorVector;
+        }
+
+        transform.position = finalPos;
     }
 
     void BuildPlant()

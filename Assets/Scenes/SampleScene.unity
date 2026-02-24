@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 737909546}
   - component: {fileID: 737909547}
   - component: {fileID: 737909548}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -458,8 +458,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.030771494, y: 0.0680995}
-  m_Size: {x: 0.68097067, y: 1.0393605}
+  m_Offset: {x: 0.03077149, y: 0.0680995}
+  m_Size: {x: 0.6809707, y: 1.039361}
   m_Direction: 0
 --- !u!1 &852818056
 GameObject:
@@ -812,6 +812,7 @@ MonoBehaviour:
   mainCamera: {fileID: 519420031}
   sr: {fileID: 475088544}
   blockedColor: {r: 1, g: 0, b: 0.17395782, a: 0.7254902}
+  player: {fileID: 737909543}
   canBuild: 0
 --- !u!61 &1942579890
 BoxCollider2D:
@@ -856,7 +857,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.86328125, y: 0.87109375}
+  m_Size: {x: 0.8632813, y: 0.8710938}
   m_EdgeRadius: 0
 --- !u!1 &2114979525
 GameObject:
