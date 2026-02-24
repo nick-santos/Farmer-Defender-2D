@@ -8,13 +8,16 @@ public class Health : MonoBehaviour
     public float health;
     //public float maxHealth;
 
+    private bool isDestroyed = false;
+
     public void TakeDamage(int damage)
     {
         health -= damage;
 
-        if(health <= 0)
+        if(health <= 0 && !isDestroyed)
         {
             WaveManager.onEnemyDestroy.Invoke();
+            isDestroyed = true;
             Destroy(this.gameObject);
         }
     }
