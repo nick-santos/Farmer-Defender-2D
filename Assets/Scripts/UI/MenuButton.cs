@@ -11,11 +11,10 @@ public class MenuButton : MonoBehaviour
 
     public void OnClick()
     {
-        bool used = Inventory.main.UseItem(plantType);
-
-        if (used)
+        if (Inventory.main.GetAmount(plantType) > 0)
         {
-            Debug.Log("Item usado!");
+            Debug.Log("Item selecionado!");
+            BuildManager.main.SetSelectedPlant(plantType);
         }
         else
         {

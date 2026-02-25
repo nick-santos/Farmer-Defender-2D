@@ -8,12 +8,14 @@ public class Plant
     public string name;
     public int waterCost;
     public GameObject prefab;
+    public Sprite placeholderImage;
 
-    public Plant (PlantType _plantType, string _name, int _waterCost, GameObject _prefab)
+    public Plant (PlantType _plantType, string _name, int _waterCost, GameObject _prefab, Sprite _placeholderImage)
     {
         plantType = _plantType;
         name = _name;
         waterCost = _waterCost;
         prefab = _prefab;
+        placeholderImage = _placeholderImage;
     }
 }

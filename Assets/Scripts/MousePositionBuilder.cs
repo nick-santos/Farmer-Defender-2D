@@ -10,29 +10,30 @@ public class MousePositionBuilder : MonoBehaviour
     [SerializeField] private Color blockedColor;
     public GameObject player;
 
-    [SerializeField] private bool canBuild;
+    [SerializeField] private bool isBlocked;
     private GameObject plant;
     private Color startColor;
     private float radius = 2f;
+    private Plant plantToBuild;
 
     void Start()
     {
-        canBuild = true;
         startColor = sr.color;
+    }
+
+    void OnEnable()
+    {
+        plantToBuild = BuildManager.main.GetSelectedPlant();
+        sr.enabled = true;
+        sr.sprite = plantToBuild.placeholderImage;
+        isBlocked = false;
     }
 
     void Update()
     {
         MousePositionTrack();
 
-        if(Input.GetMouseButtonDown(0))
-        {
-            if (canBuild)
-            {
-                Debug.Log("PLANT");
-                BuildPlant();
-            }
-        }
+        BuildPlant();
     }
 
     void MousePositionTrack()
@@ -62,20 +63,34 @@ public class MousePositionBuilder : MonoBehaviour
     void BuildPlant()
     {
         //if (plant != null) return;
-        Plant plantToBuild = BuildManager.main.GetSelectedPlant();
-        plant = Instantiate(plantToBuild.prefab, transform.position, Quaternion.identity);
+        //Plant plantToBuild = BuildManager.main.GetSelectedPlant();
+        
+        if(Input.GetMouseButtonDown(0))
+        {
+            if (!isBlocked)
+            {
+                if (Inventory.main.UseItem(plantToBuild.plantType))
+                {
+                    Debug.Log("PLANT");
+                    plant = Instantiate(plantToBuild.prefab, transform.position, Quaternion.identity);
+                    
+                    this.enabled = false;
+                    sr.enabled = false;
+                }
+            }
+        }
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        canBuild = false;
+        isBlocked = true;
         sr.color = blockedColor;
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-
-        canBuild = true;
+        isBlocked = false;
         sr.color = startColor;
     }
 }
