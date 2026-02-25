@@ -1876,8 +1876,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd27dc508794f064488cb51a584153ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantPrefabs:
-  - {fileID: 3260147745854088909, guid: 05285f8f6fdf8834f860c8703715a6f1, type: 3}
+  plants:
+  - name: Peashooter
+    waterCost: 10
+    prefab: {fileID: 3260147745854088909, guid: 05285f8f6fdf8834f860c8703715a6f1, type: 3}
+  - name: Other Shooter
+    waterCost: 10
+    prefab: {fileID: 3260147745854088909, guid: 512353a5fe067eb44b848c2506fd893e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

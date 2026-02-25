@@ -7,7 +7,7 @@ public class BuildManager : MonoBehaviour
     public static BuildManager main;
 
     [Header("References")]
-    public GameObject[] plantPrefabs;
+    public Plant[] plants;
 
     private int selectedPlant = 0;
 
@@ -16,9 +16,9 @@ public class BuildManager : MonoBehaviour
         main = this;
     }
 
-    public GameObject GetSelectedPlant()
+    public Plant GetSelectedPlant()
     {
-        return plantPrefabs[selectedPlant];
+        return plants[selectedPlant];
     }
 
 }

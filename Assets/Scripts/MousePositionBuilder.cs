@@ -62,8 +62,8 @@ public class MousePositionBuilder : MonoBehaviour
     void BuildPlant()
     {
         //if (plant != null) return;
-        GameObject plantToBuild = BuildManager.main.GetSelectedPlant();
-        plant = Instantiate(plantToBuild, transform.position, Quaternion.identity);
+        Plant plantToBuild = BuildManager.main.GetSelectedPlant();
+        plant = Instantiate(plantToBuild.prefab, transform.position, Quaternion.identity);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
