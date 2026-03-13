@@ -9,6 +9,7 @@ public class WaveManager : MonoBehaviour
 
     [Header("References")]
     public Transform startPoint;
+    public Transform baseTransform; // Center of radius
     public GameObject[] enemyPrefabs;
 
     [Header("Attributes")]
@@ -16,6 +17,9 @@ public class WaveManager : MonoBehaviour
     public float enemiesPerSecond = 0.5f;
     public float timeBetweenWaves = 5f;
     public float difficultyScalingFactor = 0.75f;
+
+    public float minSpawnDistance = 10f; // Minimum distance from the base
+    public float maxSpawnDistance = 15f; // Maximum distance from the base
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
@@ -41,7 +45,6 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(StartWave());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isSpawning) return;
@@ -84,8 +87,15 @@ public class WaveManager : MonoBehaviour
 
     void SpawnEnemy()
     {
+        // Calculate a random point in the circle
+        Vector2 randomDirection = Random.insideUnitCircle.normalized;
+        float randomDistance = Random.Range(minSpawnDistance, maxSpawnDistance);
+        Vector2 spawnPosition = (Vector2)baseTransform.position + randomDirection * randomDistance;
+
         GameObject prefabToSpawn = enemyPrefabs[0]; //Later will be randomized
-        Instantiate(prefabToSpawn, startPoint.position, Quaternion.identity);
+        Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity); // Instantiate the enemy
+        
+        //Instantiate(prefabToSpawn, startPoint.position, Quaternion.identity);
     }
 
     private int EnemiesPerWave()
