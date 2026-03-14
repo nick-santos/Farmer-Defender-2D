@@ -53,10 +53,12 @@ public class WaveManager : MonoBehaviour
 
         if(timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0)
         {
-            SpawnEnemy();
-            enemiesLeftToSpawn--;
-            enemiesAlive++;
-            timeSinceLastSpawn = 0f;
+            if (SpawnEnemy())
+            {
+                enemiesLeftToSpawn--;
+                enemiesAlive++;
+                timeSinceLastSpawn = 0f;
+            }
         }
 
         if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
@@ -85,7 +87,7 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(StartWave());
     }
 
-    void SpawnEnemy()
+    bool SpawnEnemy()
     {
         // Calculate a random point in the circle
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
@@ -93,8 +95,15 @@ public class WaveManager : MonoBehaviour
         Vector2 spawnPosition = (Vector2)baseTransform.position + randomDirection * randomDistance;
 
         GameObject prefabToSpawn = enemyPrefabs[0]; //Later will be randomized
-        Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity); // Instantiate the enemy
         
+        if(!Physics2D.OverlapCircle(spawnPosition, 0.5f))
+        {
+            Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity); // Instantiate the enemy    
+            return true;
+        }
+        
+        return false; // could not spawn (overlap with other obj)
+
         //Instantiate(prefabToSpawn, startPoint.position, Quaternion.identity);
     }
 
