@@ -2425,6 +2425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 913620831}
   baseTransform: {fileID: 852818058}
+  targetCamera: {fileID: 519420031}
   enemyPrefabs:
   - {fileID: 2868455481214250361, guid: cad867d11350a8c42a68c9e5a6cc4fe4, type: 3}
   baseEnemies: 8

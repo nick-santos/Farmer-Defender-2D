@@ -10,6 +10,7 @@ public class WaveManager : MonoBehaviour
     [Header("References")]
     public Transform startPoint;
     public Transform baseTransform; // Center of radius
+    public Camera targetCamera;
     public GameObject[] enemyPrefabs;
 
     [Header("Attributes")]
@@ -96,10 +97,13 @@ public class WaveManager : MonoBehaviour
 
         GameObject prefabToSpawn = enemyPrefabs[0]; //Later will be randomized
         
-        if(!Physics2D.OverlapCircle(spawnPosition, 0.5f))
+        if(!IsPositionVisible(spawnPosition))
         {
-            Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity); // Instantiate the enemy    
-            return true;
+            if(!Physics2D.OverlapCircle(spawnPosition, 0.5f))
+            {
+                Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity); // Instantiate the enemy    
+                return true;
+            }
         }
         
         return false; // could not spawn (overlap with other obj)
@@ -110,6 +114,25 @@ public class WaveManager : MonoBehaviour
     private int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
+    }
+
+    public bool IsPositionVisible(Vector3 worldPosition)
+    {
+        if (targetCamera == null)
+        {
+            Debug.LogError("Target camera not assigned!");
+            return false;
+        }
+
+        // Convert world position to viewport point
+        Vector3 viewportPoint = targetCamera.WorldToViewportPoint(worldPosition);
+
+        // Check if the point is within the viewport bounds and in front of the camera
+        bool inViewportWidth = viewportPoint.x >= 0f && viewportPoint.x <= 1f;
+        bool inViewportHeight = viewportPoint.y >= 0f && viewportPoint.y <= 1f;
+        bool inFrontOfCamera = viewportPoint.z > 0f;
+
+        return inViewportWidth && inViewportHeight && inFrontOfCamera;
     }
 
 }
