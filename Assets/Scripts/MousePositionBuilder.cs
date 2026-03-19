@@ -8,17 +8,17 @@ public class MousePositionBuilder : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Color blockedColor;
+    [SerializeField] private Color startColor;
     public GameObject player;
 
     [SerializeField] private bool isBlocked;
     private GameObject plant;
-    private Color startColor;
     private float radius = 2f;
     private Plant plantToBuild;
 
     void Start()
     {
-        startColor = sr.color;
+        //startColor = sr.color;
     }
 
     void OnEnable()
