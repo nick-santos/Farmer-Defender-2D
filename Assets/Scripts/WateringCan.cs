@@ -9,6 +9,8 @@ public class WateringCan : MonoBehaviour
     public int waterQuantity;
     public int wateringCanMax = 30;
 
+    public bool isNearPlant = false;
+
     private void Awake()
     {
         main = this;
@@ -17,6 +19,18 @@ public class WateringCan : MonoBehaviour
     void Start()
     {
         waterQuantity = 10;
+    }
+
+    void Update()
+    {
+        if(isNearPlant)
+        {
+            if(Input.GetKeyDown(KeyCode.E)) 
+            {
+                SpendWater(10);
+                Debug.Log(waterQuantity);
+            }
+        }
     }
 
     public void IncreaseWater(int amount)
@@ -35,6 +49,22 @@ public class WateringCan : MonoBehaviour
         {
             Debug.Log("Not enough water");
             return false;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.transform.tag == "Plant")
+        {
+            isNearPlant = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.transform.tag == "Plant")
+        {
+            isNearPlant = false;
         }
     }
 }
