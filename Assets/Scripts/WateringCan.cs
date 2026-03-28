@@ -8,8 +8,10 @@ public class WateringCan : MonoBehaviour
 
     public int waterQuantity;
     public int wateringCanMax = 30;
-
     public bool isNearPlant = false;
+    private int plantNeededWater;
+
+    public Transform targetPlant;
 
     private void Awake()
     {
@@ -23,12 +25,17 @@ public class WateringCan : MonoBehaviour
 
     void Update()
     {
-        if(isNearPlant)
+        if(isNearPlant && targetPlant != null)
         {
             if(Input.GetKeyDown(KeyCode.E)) 
             {
-                SpendWater(10);
-                Debug.Log(waterQuantity);
+                plantNeededWater = targetPlant.GetComponent<WaterReceiver>().waterNeeded;
+                
+                if(SpendWater(plantNeededWater))
+                {
+                    Debug.Log(waterQuantity);
+                    targetPlant.GetComponent<WaterReceiver>().ReceiveWater();
+                }
             }
         }
     }
@@ -57,6 +64,7 @@ public class WateringCan : MonoBehaviour
         if(collision.transform.tag == "Plant")
         {
             isNearPlant = true;
+            targetPlant = collision.transform;
         }
     }
 
@@ -65,6 +73,10 @@ public class WateringCan : MonoBehaviour
         if(collision.transform.tag == "Plant")
         {
             isNearPlant = false;
+            if(targetPlant == collision.transform)
+            {
+                targetPlant = null;
+            }
         }
     }
 }
