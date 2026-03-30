@@ -27,7 +27,7 @@ public class WateringCan : MonoBehaviour
     {
         if(isNearPlant && targetPlant != null)
         {
-            if(Input.GetKeyDown(KeyCode.E)) 
+            if(Input.GetKeyDown(KeyCode.E) && targetPlant.GetComponent<WaterReceiver>().canBeWatered) 
             {
                 plantNeededWater = targetPlant.GetComponent<WaterReceiver>().waterNeeded;
                 
