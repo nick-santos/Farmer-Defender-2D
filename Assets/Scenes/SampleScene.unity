@@ -588,6 +588,7 @@ MonoBehaviour:
   waterQuantity: 0
   wateringCanMax: 30
   isNearPlant: 0
+  targetPlant: {fileID: 0}
 --- !u!1 &335136011
 GameObject:
   m_ObjectHideFlags: 0

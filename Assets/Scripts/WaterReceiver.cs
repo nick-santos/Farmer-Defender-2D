@@ -5,8 +5,12 @@ using UnityEngine;
 public class WaterReceiver : MonoBehaviour
 {
     [Header("References")]
-    public Sprite GrownPlant;
-    public SpriteRenderer sr;
+    public Sprite grownPlant;
+    public SpriteRenderer srPlant;
+    public Sprite waterIcon1;
+    public Sprite waterIcon2;
+    public SpriteRenderer srIcon;
+    public GameObject waterIcon;
 
     [Header("Attributes")]
     public int waterNeeded = 5;
@@ -19,7 +23,8 @@ public class WaterReceiver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        srPlant = GetComponent<SpriteRenderer>();
+        waterIcon.SetActive(true);
     }
 
     // Update is called once per frame
@@ -35,10 +40,13 @@ public class WaterReceiver : MonoBehaviour
         // icon of water appears
         Debug.Log("WATER");
         canBeWatered = true;
+        srIcon.sprite = waterIcon1;
+        waterIcon.SetActive(true);
 
         yield return new WaitForSeconds(5f);
 
         // plant stop working
+        srIcon.sprite = waterIcon2;
         Debug.Log("STOP");
     }
 
@@ -46,9 +54,10 @@ public class WaterReceiver : MonoBehaviour
     {
         if(isSeedling)
         {
-            sr.sprite = GrownPlant;
+            srPlant.sprite = grownPlant;
             isSeedling = false;
             canBeWatered = false;
+            waterIcon.SetActive(false);
             wateringCoroutine = StartCoroutine(IndicateWaterIsNeededAfterTime());
             return;
         }
@@ -57,6 +66,7 @@ public class WaterReceiver : MonoBehaviour
             StopCoroutine(wateringCoroutine);
         
         canBeWatered = false;
+        waterIcon.SetActive(false);
         wateringCoroutine = StartCoroutine(IndicateWaterIsNeededAfterTime());
         
     }
