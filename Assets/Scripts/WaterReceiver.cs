@@ -44,7 +44,7 @@ public class WaterReceiver : MonoBehaviour
         srIcon.sprite = waterIcon1;
         waterIcon.SetActive(true);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(timeWithoutWatering/2);
 
         // plant stop working
         //Debug.Log("STOP");

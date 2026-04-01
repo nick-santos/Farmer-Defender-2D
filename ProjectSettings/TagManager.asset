@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Enemy
   - Plant
+  - Well
   layers:
   - Default
   - TransparentFX
@@ -42,8 +43,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 546891047
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2019942775
     locked: 0
   - name: UI
     uniqueID: 1261847509

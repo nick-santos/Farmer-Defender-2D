@@ -43,6 +43,11 @@ public class WateringCan : MonoBehaviour
     public void IncreaseWater(int amount)
     {
         waterQuantity += amount;
+        if(waterQuantity > wateringCanMax)
+        {
+            waterQuantity = wateringCanMax;
+        }
+        Debug.Log(waterQuantity);
     }
 
     public bool SpendWater(int amount)
@@ -65,6 +70,10 @@ public class WateringCan : MonoBehaviour
         {
             isNearPlant = true;
             targetPlant = collision.transform;
+        }
+        else if(collision.transform.tag == "Well")
+        {
+            IncreaseWater(wateringCanMax);
         }
     }
 
