@@ -25,6 +25,7 @@ public class WaterReceiver : MonoBehaviour
     {
         srPlant = GetComponent<SpriteRenderer>();
         waterIcon.SetActive(true);
+        GetComponent<Shooter>().enabled = false;
     }
 
     // Update is called once per frame
@@ -38,7 +39,7 @@ public class WaterReceiver : MonoBehaviour
         yield return new WaitForSeconds(timeWithoutWatering);
 
         // icon of water appears
-        Debug.Log("WATER");
+        //Debug.Log("WATER");
         canBeWatered = true;
         srIcon.sprite = waterIcon1;
         waterIcon.SetActive(true);
@@ -46,8 +47,9 @@ public class WaterReceiver : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         // plant stop working
+        //Debug.Log("STOP");
         srIcon.sprite = waterIcon2;
-        Debug.Log("STOP");
+        GetComponent<Shooter>().enabled = false;
     }
 
     public void ReceiveWater()
@@ -59,6 +61,7 @@ public class WaterReceiver : MonoBehaviour
             canBeWatered = false;
             waterIcon.SetActive(false);
             wateringCoroutine = StartCoroutine(IndicateWaterIsNeededAfterTime());
+            GetComponent<Shooter>().enabled = true;
             return;
         }
 
@@ -68,6 +71,7 @@ public class WaterReceiver : MonoBehaviour
         canBeWatered = false;
         waterIcon.SetActive(false);
         wateringCoroutine = StartCoroutine(IndicateWaterIsNeededAfterTime());
+        GetComponent<Shooter>().enabled = true;
         
     }
 }
