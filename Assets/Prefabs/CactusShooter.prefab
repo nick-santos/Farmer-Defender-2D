@@ -263,7 +263,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 32768
-  targetInRange: 3
+  targetInRange: 8
   rotationSpeed: 200
   projPerSec: 2
 --- !u!114 &1288549618237642160
@@ -285,7 +285,7 @@ MonoBehaviour:
   srIcon: {fileID: 4849878125208436251}
   waterIcon: {fileID: 2182838213776811314}
   waterNeeded: 5
-  timeWithoutWatering: 10
+  timeWithoutWatering: 30
   canBeWatered: 1
   isSeedling: 1
 --- !u!1 &5271081050988373206

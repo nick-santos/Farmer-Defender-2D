@@ -5,5 +5,5 @@ using UnityEngine;
 public enum PlantType
 {
     Peashooter,
-    TestShooter
+    CactusShooter
 }

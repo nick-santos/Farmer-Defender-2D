@@ -20,7 +20,7 @@ public class WateringCan : MonoBehaviour
 
     void Start()
     {
-        waterQuantity = 10;
+        waterQuantity = 20;
     }
 
     void Update()

@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 117792453}
   - component: {fileID: 117792456}
   m_Layer: 5
-  m_Name: Test
+  m_Name: Cactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1295,7 +1295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7593e2c34e2e647aef935a3a7e2249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
 --- !u!70 &737909548
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1690,7 +1690,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test
+  m_text: Cactus
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2457,63 +2457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantType: 0
   quantity: {fileID: 570184844}
---- !u!1001 &2048747467
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1944394070249031022, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.0527825
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944394070249031022, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.1402881
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944394070249031022, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944394070249031022, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944394070249031022, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944394070249031022, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944394070249031022, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944394070249031022, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944394070249031022, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944394070249031022, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2602339824916494544, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: m_Name
-      value: CactusShooter
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
 --- !u!1 &2111774874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,7 +2604,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114979525}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ad3e902680dd5845bc8bba38b4829c9, type: 3}
   m_Name: 
@@ -2712,10 +2655,10 @@ MonoBehaviour:
     prefab: {fileID: 3260147745854088909, guid: 05285f8f6fdf8834f860c8703715a6f1, type: 3}
     placeholderImage: {fileID: 21300000, guid: 243250349c36b4b4f879fc8b1b3be258, type: 3}
   - plantType: 1
-    name: TestShooter
+    name: Cactus
     waterCost: 10
-    prefab: {fileID: 3260147745854088909, guid: 512353a5fe067eb44b848c2506fd893e, type: 3}
-    placeholderImage: {fileID: 21300000, guid: c26b0c7a257629e44adb0b6850936a28, type: 3}
+    prefab: {fileID: 2602339824916494544, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
+    placeholderImage: {fileID: 1114321107, guid: 8a4ca5afd4d40b24589aaa8248e19a88, type: 3}
 --- !u!114 &2114979529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2739,4 +2682,3 @@ SceneRoots:
   - {fileID: 1942579888}
   - {fileID: 1650279511}
   - {fileID: 1604570724}
-  - {fileID: 2048747467}
