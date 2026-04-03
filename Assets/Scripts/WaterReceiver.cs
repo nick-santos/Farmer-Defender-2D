@@ -36,10 +36,13 @@ public class WaterReceiver : MonoBehaviour
 
     private IEnumerator IndicateWaterIsNeededAfterTime()
     {
+        canBeWatered = false;
+        waterIcon.SetActive(false);
+        GetComponent<Shooter>().enabled = true;
+
         yield return new WaitForSeconds(timeWithoutWatering);
 
         // icon of water appears
-        //Debug.Log("WATER");
         canBeWatered = true;
         srIcon.sprite = waterIcon1;
         waterIcon.SetActive(true);
@@ -47,7 +50,6 @@ public class WaterReceiver : MonoBehaviour
         yield return new WaitForSeconds(timeWithoutWatering/2);
 
         // plant stop working
-        //Debug.Log("STOP");
         srIcon.sprite = waterIcon2;
         GetComponent<Shooter>().enabled = false;
     }
@@ -58,20 +60,16 @@ public class WaterReceiver : MonoBehaviour
         {
             srPlant.sprite = grownPlant;
             isSeedling = false;
-            canBeWatered = false;
-            waterIcon.SetActive(false);
             wateringCoroutine = StartCoroutine(IndicateWaterIsNeededAfterTime());
-            GetComponent<Shooter>().enabled = true;
             return;
         }
 
         if (wateringCoroutine != null)
+        {
             StopCoroutine(wateringCoroutine);
-        
-        canBeWatered = false;
-        waterIcon.SetActive(false);
+        }
+
         wateringCoroutine = StartCoroutine(IndicateWaterIsNeededAfterTime());
-        GetComponent<Shooter>().enabled = true;
         
     }
 }

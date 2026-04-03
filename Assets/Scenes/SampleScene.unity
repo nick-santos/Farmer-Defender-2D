@@ -587,7 +587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterQuantity: 0
   wateringCanMax: 30
-  isNearPlant: 0
+  fillCanTimeRate: 0.5
   targetPlant: {fileID: 0}
 --- !u!1 &335136011
 GameObject:
@@ -1493,7 +1493,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.001295135, y: 0.0037089759}

@@ -8,10 +8,14 @@ public class WateringCan : MonoBehaviour
 
     public int waterQuantity;
     public int wateringCanMax = 30;
-    public bool isNearPlant = false;
+    public float fillCanTimeRate = 0.5f;
+
+    private bool isNearPlant = false;
     private int plantNeededWater;
 
     public Transform targetPlant;
+
+    private Coroutine fillCanCoroutine;
 
     private void Awake()
     {
@@ -20,7 +24,7 @@ public class WateringCan : MonoBehaviour
 
     void Start()
     {
-        waterQuantity = 20;
+        waterQuantity = 10;
     }
 
     void Update()
@@ -47,7 +51,16 @@ public class WateringCan : MonoBehaviour
         {
             waterQuantity = wateringCanMax;
         }
-        Debug.Log(waterQuantity);
+    }
+
+    private IEnumerator FillWateringCan()
+    {
+        while (waterQuantity < wateringCanMax)
+        {
+            yield return new WaitForSeconds(fillCanTimeRate);
+            
+            waterQuantity += 1;
+        }
     }
 
     public bool SpendWater(int amount)
@@ -73,7 +86,8 @@ public class WateringCan : MonoBehaviour
         }
         else if(collision.transform.tag == "Well")
         {
-            IncreaseWater(wateringCanMax);
+            fillCanCoroutine = StartCoroutine(FillWateringCan());
+            Debug.Log(waterQuantity);
         }
     }
 
@@ -86,6 +100,14 @@ public class WateringCan : MonoBehaviour
             {
                 targetPlant = null;
             }
+        }
+        else if(collision.transform.tag == "Well")
+        {
+            if (fillCanCoroutine != null)
+            {
+                StopCoroutine(fillCanCoroutine);
+            }
+            Debug.Log(waterQuantity);
         }
     }
 }
