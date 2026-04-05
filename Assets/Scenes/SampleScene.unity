@@ -257,6 +257,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13535762}
   m_CullTransparentMesh: 1
+--- !u!1 &51142748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 51142749}
+  m_Layer: 6
+  m_Name: HoldPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &51142749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51142748}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.638, y: -0.194, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 737909545}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &117792451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,9 +1293,9 @@ GameObject:
   - component: {fileID: 737909545}
   - component: {fileID: 737909544}
   - component: {fileID: 737909546}
-  - component: {fileID: 737909547}
   - component: {fileID: 737909548}
   - component: {fileID: 737909549}
+  - component: {fileID: 737909547}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1338,6 +1369,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 519420032}
+  - {fileID: 51142749}
   - {fileID: 1485493623}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1381,6 +1413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  holdPoint: {fileID: 51142749}
 --- !u!70 &737909548
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2109,6 +2142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionIcon: {fileID: 245704137}
+  player: {fileID: 737909547}
 --- !u!1 &1604570721
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class InteractionDetector : MonoBehaviour
 {
     private IInteractable interactableInRange = null; //Closest Interactable
     public GameObject interactionIcon;
+    public Player player;
 
     void Start()
     {
@@ -16,7 +17,14 @@ public class InteractionDetector : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            interactableInRange?.Interact();
+            if (player.IsCarrying())
+            {
+                player.Drop();
+            }
+            else
+            {
+                interactableInRange?.Interact(player);
+            }
         }
     }
 

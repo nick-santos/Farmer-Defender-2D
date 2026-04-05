@@ -5,8 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
+    public Transform holdPoint;
 
-    Rigidbody2D rb;
+    private ICarryable carriedObject;
+
+    private Rigidbody2D rb;
 
     float moveX;
     float moveY;
@@ -27,6 +30,37 @@ public class Player : MonoBehaviour
         Move();
         // Animation();
         // Attack();
+    }
+
+    public bool IsCarrying()
+    {
+        return carriedObject != null;
+    }
+
+    public void PickUp(ICarryable obj)
+    {
+        if (carriedObject != null) return;
+
+        carriedObject = obj;
+
+        carriedObject.GetTransform().SetParent(holdPoint);
+        carriedObject.GetTransform().localPosition = Vector3.zero;
+
+        carriedObject.OnPickup();
+    }
+
+    public void Drop()
+    {
+        if (carriedObject == null) return;
+
+        carriedObject.GetTransform().SetParent(null);
+
+        Vector3 dropPosition = transform.position + transform.right;
+        carriedObject.GetTransform().position = dropPosition;
+
+        carriedObject.OnDrop();
+
+        carriedObject = null;
     }
 
     void Move()

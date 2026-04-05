@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WateringCan : MonoBehaviour, IInteractable
+public class WateringCan : MonoBehaviour, IInteractable, ICarryable
 {
     public static WateringCan main;
 
@@ -12,6 +12,7 @@ public class WateringCan : MonoBehaviour, IInteractable
 
     private bool isNearPlant = false;
     private int plantNeededWater;
+    private bool isCarried = false;
 
     public Transform targetPlant;
 
@@ -47,15 +48,30 @@ public class WateringCan : MonoBehaviour, IInteractable
     public bool CanInteract()
     {
         // if not carrying anything
-        return true;
+        return !isCarried;
     }
 
-    public void Interact()
+    public void Interact(Player player)
     {
         if (CanInteract())
         {
-            Debug.Log("interaction :o");
+            player.PickUp(this);
         }
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
+    public void OnPickup()
+    {
+        isCarried = true;
+    }
+
+    public void OnDrop()
+    {
+        isCarried = false;
     }
 
     public void IncreaseWater(int amount)
