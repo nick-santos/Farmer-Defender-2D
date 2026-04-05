@@ -30,7 +30,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable
 
     void Update()
     {
-        if(isNearPlant && targetPlant != null)
+        if(isNearPlant && targetPlant != null && isCarried)
         {
             if(Input.GetKeyDown(KeyCode.E) && targetPlant.GetComponent<WaterReceiver>().canBeWatered) 
             {

@@ -46,6 +46,13 @@ public class Player : MonoBehaviour
         carriedObject.GetTransform().SetParent(holdPoint);
         carriedObject.GetTransform().localPosition = Vector3.zero;
 
+        var rb = carriedObject.GetTransform().GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.simulated = false;
+            //rb.linearVelocity = Vector2.zero;
+        }
+
         carriedObject.OnPickup();
     }
 
@@ -57,6 +64,13 @@ public class Player : MonoBehaviour
 
         Vector3 dropPosition = transform.position + transform.right;
         carriedObject.GetTransform().position = dropPosition;
+
+        var rb = carriedObject.GetTransform().GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.simulated = true;
+            //rb.linearVelocity = Vector2.zero;
+        }
 
         carriedObject.OnDrop();
 
