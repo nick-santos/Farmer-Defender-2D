@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WateringCan : MonoBehaviour
+public class WateringCan : MonoBehaviour, IInteractable
 {
     public static WateringCan main;
 
@@ -41,6 +41,20 @@ public class WateringCan : MonoBehaviour
                     targetPlant.GetComponent<WaterReceiver>().ReceiveWater();
                 }
             }
+        }
+    }
+
+    public bool CanInteract()
+    {
+        // if not carrying anything
+        return true;
+    }
+
+    public void Interact()
+    {
+        if (CanInteract())
+        {
+            Debug.Log("interaction :o");
         }
     }
 
