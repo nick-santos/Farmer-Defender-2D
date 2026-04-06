@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WateringCan : MonoBehaviour, IInteractable, ICarryable
+public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 {
     public static WateringCan main;
 
@@ -26,23 +26,6 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable
     void Start()
     {
         waterQuantity = 10;
-    }
-
-    void Update()
-    {
-        if(isNearPlant && targetPlant != null && isCarried)
-        {
-            if(Input.GetKeyDown(KeyCode.E) && targetPlant.GetComponent<WaterReceiver>().canBeWatered) 
-            {
-                plantNeededWater = targetPlant.GetComponent<WaterReceiver>().waterNeeded;
-                
-                if(SpendWater(plantNeededWater))
-                {
-                    Debug.Log(waterQuantity);
-                    targetPlant.GetComponent<WaterReceiver>().ReceiveWater();
-                }
-            }
-        }
     }
 
     public bool CanInteract()
@@ -72,6 +55,23 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable
     public void OnDrop()
     {
         isCarried = false;
+    }
+
+    public void Use()
+    {
+        if(isNearPlant && targetPlant != null && isCarried)
+        {
+            if(targetPlant.GetComponent<WaterReceiver>().canBeWatered) 
+            {
+                plantNeededWater = targetPlant.GetComponent<WaterReceiver>().waterNeeded;
+                
+                if(SpendWater(plantNeededWater))
+                {
+                    Debug.Log(waterQuantity);
+                    targetPlant.GetComponent<WaterReceiver>().ReceiveWater();
+                }
+            }
+        }
     }
 
     public void IncreaseWater(int amount)

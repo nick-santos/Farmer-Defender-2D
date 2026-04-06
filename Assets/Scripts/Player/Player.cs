@@ -15,21 +15,20 @@ public class Player : MonoBehaviour
     float moveY;
     bool isMoving;
 
-    // public Animator anim;
-
-    // Start is called before the first frame update
     void Start()
     {
         // anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
-        // Animation();
-        // Attack();
+        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            UseItem();
+        }
     }
 
     public bool IsCarrying()
@@ -77,6 +76,16 @@ public class Player : MonoBehaviour
         carriedObject = null;
     }
 
+    void UseItem()
+    {
+        if (!IsCarrying()) return;
+
+        if (carriedObject is IUsable usable)
+        {
+            usable.Use();
+        }
+    }
+
     void Move()
     {
         moveX = Input.GetAxisRaw("Horizontal");
@@ -84,29 +93,5 @@ public class Player : MonoBehaviour
 
         rb.MovePosition(transform.position + new Vector3(moveX, moveY, 0) * Time.deltaTime * speed);
     }
-
-    // void Animation()
-    // {
-    //     if (moveX == 0 && moveY == 0)
-    //     {
-    //         isMoving = false;
-    //     }
-    //     else
-    //     {
-    //         isMoving = true;
-    //     }
-
-    //     anim.SetBool("isMoving", isMoving);
-    //     anim.SetFloat("Horizontal", moveX);
-    //     anim.SetFloat("Vertical", moveY);
-    // }
-
-    // void Attack()
-    // {
-    //     if(Input.GetKeyDown(KeyCode.Space))
-    //     {
-    //         anim.SetTrigger("Attack");
-    //     }
-    // }
     
 }
