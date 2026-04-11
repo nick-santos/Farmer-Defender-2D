@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 8521586457912413581}
   - component: {fileID: 2694532504047870267}
   - component: {fileID: 2534189486915683428}
+  - component: {fileID: 1487592591554056098}
   - component: {fileID: 7169022409676178187}
   - component: {fileID: 5656611423020290918}
   m_Layer: 15
@@ -337,6 +338,21 @@ MonoBehaviour:
   direction: 1
   isSeeing: 0
   isClose: 0
+--- !u!114 &1487592591554056098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3099942978483358113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0379dd277afd4f74e8483f170dffe3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 0
+  maxHealthPoints: 5
+  baseDamage: 1
 --- !u!114 &7169022409676178187
 MonoBehaviour:
   m_ObjectHideFlags: 0
