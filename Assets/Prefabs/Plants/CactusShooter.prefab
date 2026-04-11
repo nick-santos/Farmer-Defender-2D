@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3709784858336066313}
   - component: {fileID: 1317271857147193772}
   - component: {fileID: 1288549618237642160}
+  - component: {fileID: 5253060481019579510}
   m_Layer: 14
   m_Name: CactusShooter
   m_TagString: Plant
@@ -301,6 +302,21 @@ MonoBehaviour:
   timeWithoutWatering: 30
   canBeWatered: 1
   isSeedling: 1
+--- !u!114 &5253060481019579510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602339824916494544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0379dd277afd4f74e8483f170dffe3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 15
+  maxHealthPoints: 15
+  baseDamage: 0
 --- !u!1 &5271081050988373206
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8611152474267819800}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: MuzzlePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

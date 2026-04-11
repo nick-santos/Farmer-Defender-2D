@@ -13,9 +13,8 @@ public class EnemyBehavior : MonoBehaviour
     public bool isSeeing = false; 
     public bool isClose = false;
 
-    Transform targetTransform;
+    public Transform targetTransform;
     Rigidbody2D rb;
-    List<Transform> targetsInRange = new List<Transform>();
 
     // Start is called before the first frame update
     void Start()
@@ -37,58 +36,6 @@ public class EnemyBehavior : MonoBehaviour
         else
         {
             //Idle();
-        }
-    }
-
-    void SearchNewTarget()
-    {
-        Transform closestTarget = null;
-        float minDistance = Mathf.Infinity;
-
-        foreach (Transform target in targetsInRange)
-        {
-            float distance = Vector2.Distance(transform.position, target.transform.position);
-
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                closestTarget = target.transform;
-            }
-        }
-
-        if (closestTarget != null)
-        {
-            targetTransform = closestTarget;
-            isSeeing = true;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.transform.tag == "Plant" || collision.transform.tag == "Player")
-        {
-            targetsInRange.Add(collision.transform);
-
-            if (targetTransform == null)
-            {
-                targetTransform = collision.transform;
-                isSeeing = true;
-            }
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.transform.tag == "Plant" || collision.transform.tag == "Player")
-        {
-            targetsInRange.Remove(collision.transform);
-
-            if (targetTransform == collision.transform)
-            {
-                targetTransform = null;
-                isSeeing = false;
-                SearchNewTarget();
-            }
         }
     }
 

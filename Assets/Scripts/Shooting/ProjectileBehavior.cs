@@ -44,12 +44,14 @@ public class ProjectileBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Colliders/Hitbox")
+        if (collision.transform.tag == "Enemy")
         {
-            collision.GetComponentInParent<Health>().TakeDamage(projectileDamage);
+            //collision.GetComponent<EntityStatus>().TakeDamage(projectileDamage);
         }
-
+        if(collision.transform.tag != "Plant")
+        {
+            Destroy(this.gameObject);
+        }
         Debug.Log("Hit " + collision.name);
-        Destroy(this.gameObject);
     }
 }

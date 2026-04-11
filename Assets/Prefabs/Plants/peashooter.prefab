@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8560148616207172611}
   - component: {fileID: 8132767718171391865}
   - component: {fileID: 989707436931895108}
+  - component: {fileID: 1869566783634287624}
   m_Layer: 14
   m_Name: peashooter
   m_TagString: Plant
@@ -218,6 +219,21 @@ MonoBehaviour:
   timeWithoutWatering: 15
   canBeWatered: 1
   isSeedling: 1
+--- !u!114 &1869566783634287624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3260147745854088909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0379dd277afd4f74e8483f170dffe3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 10
+  maxHealthPoints: 10
+  baseDamage: 0
 --- !u!1 &4962512587765707953
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2521839673331794315}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: MuzzlePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

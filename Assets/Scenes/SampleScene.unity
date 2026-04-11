@@ -466,9 +466,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2393091179704850931, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_Layer
+      value: 29
+      objectReference: {fileID: 0}
     - target: {fileID: 2868455481214250361, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
       propertyPath: m_Name
       value: Slime Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668689271803157489, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 805306368
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118408977490006732, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118408977490006732, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 5656611423020290918, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
       propertyPath: m_Radius
@@ -821,7 +837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 245704138}
   - component: {fileID: 245704139}
-  m_Layer: 6
+  m_Layer: 28
   m_Name: InteractionIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1666,6 +1682,7 @@ GameObject:
   - component: {fileID: 737909548}
   - component: {fileID: 737909549}
   - component: {fileID: 737909547}
+  - component: {fileID: 737909550}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1864,6 +1881,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.52306366, y: 1.0151508}
   m_EdgeRadius: 0
+--- !u!114 &737909550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737909543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0379dd277afd4f74e8483f170dffe3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 30
+  maxHealthPoints: 30
+  baseDamage: 0
 --- !u!1 &744932143
 GameObject:
   m_ObjectHideFlags: 0
@@ -3481,7 +3513,7 @@ GameObject:
   - component: {fileID: 1485493623}
   - component: {fileID: 1485493624}
   - component: {fileID: 1485493625}
-  m_Layer: 6
+  m_Layer: 28
   m_Name: InteractionDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4523,7 +4555,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1317271857147193772, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
       propertyPath: targetInRange
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1944394070249031022, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
       propertyPath: m_LocalPosition.x
