@@ -39,7 +39,7 @@ public class Shooter : MonoBehaviour
             return;
         }
 
-        RotateTowardsTarget();
+        //RotateTowardsTarget();
 
         if (!CheckTargetIsInRange())
         {

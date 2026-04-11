@@ -131,7 +131,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 536870912
+    m_Bits: 805322816
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -228,7 +228,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 536887296
+    m_Bits: 805322816
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
