@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Plant
   - Well
+  - Colliders/Hitbox
   layers:
   - Default
   - TransparentFX

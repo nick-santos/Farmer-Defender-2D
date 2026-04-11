@@ -44,10 +44,11 @@ public class ProjectileBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Enemy")
+        if (collision.transform.tag == "Colliders/Hitbox")
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(projectileDamage);
+            collision.GetComponentInParent<Health>().TakeDamage(projectileDamage);
         }
+
         Debug.Log("Hit " + collision.name);
         Destroy(this.gameObject);
     }

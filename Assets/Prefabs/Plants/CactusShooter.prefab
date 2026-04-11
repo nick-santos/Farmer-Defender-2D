@@ -276,7 +276,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 32768
-  targetInRange: 8
+  targetInRange: 5
   rotationSpeed: 200
   projPerSec: 2
 --- !u!114 &1288549618237642160
