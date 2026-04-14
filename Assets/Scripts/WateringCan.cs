@@ -57,18 +57,23 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
         isCarried = false;
     }
 
-    public void Use()
+    public void Use(GameObject target)
     {
-        if(isNearPlant && targetPlant != null && isCarried)
+        if (target == null) return;
+        
+        Debug.Log("TARGETINNNN: " + target.name);
+        if (target.transform.tag != "Plant") return;
+
+        if(isCarried) // && targetPlant != null && isNearPlant
         {
-            if(targetPlant.GetComponent<WaterReceiver>().canBeWatered) 
+            if(target.GetComponent<WaterReceiver>().canBeWatered) 
             {
-                plantNeededWater = targetPlant.GetComponent<WaterReceiver>().waterNeeded;
+                plantNeededWater = target.GetComponent<WaterReceiver>().waterNeeded;
                 
                 if(SpendWater(plantNeededWater))
                 {
                     Debug.Log(waterQuantity);
-                    targetPlant.GetComponent<WaterReceiver>().ReceiveWater();
+                    target.GetComponent<WaterReceiver>().ReceiveWater();
                 }
             }
         }

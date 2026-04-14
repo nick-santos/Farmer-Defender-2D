@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public Transform holdPoint;
 
     private ICarryable carriedObject;
+    public bool readyToUse = false;
+    public LayerMask userTargetLayer;
 
     private Rigidbody2D rb;
 
@@ -25,15 +27,27 @@ public class Player : MonoBehaviour
     {
         Move();
         
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            UseItem();
-        }
+        UseItem();
     }
 
     public bool IsCarrying()
     {
         return carriedObject != null;
+    }
+
+    public GameObject MousePositionTrack(LayerMask layer)
+    {
+        if (Input.GetMouseButtonDown(0)) {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, layer);
+
+            if (hit.collider != null) {
+                GameObject selectedObject = hit.collider.gameObject;
+                Debug.Log("Selected: " + selectedObject.name);
+                return selectedObject;
+            }
+        }
+        return null;
     }
 
     public void PickUp(ICarryable obj)
@@ -80,9 +94,22 @@ public class Player : MonoBehaviour
     {
         if (!IsCarrying()) return;
 
-        if (carriedObject is IUsable usable)
+        if (carriedObject is not IUsable usable) return;
+        
+        GameObject clickedObject = MousePositionTrack(userTargetLayer);
+
+        if (clickedObject == null) return;
+
+        if (readyToUse)
         {
-            usable.Use();
+            usable.Use(clickedObject);
+            readyToUse = false;
+            return;
+        }
+
+        if (clickedObject == carriedObject.GetTransform().gameObject)
+        {
+            readyToUse = true;
         }
     }
 

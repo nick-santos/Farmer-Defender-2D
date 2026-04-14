@@ -1801,6 +1801,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   holdPoint: {fileID: 51142749}
+  readyToUse: 0
+  userTargetLayer:
+    serializedVersion: 2
+    m_Bits: 49153
 --- !u!70 &737909548
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
