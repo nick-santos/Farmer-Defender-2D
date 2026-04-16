@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8997526635729071804}
   - component: {fileID: 7475687857373522640}
   - component: {fileID: 5188315936925080938}
+  - component: {fileID: 1206221621663498268}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -157,6 +158,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &1206221621663498268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8982114044878900740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f543ed42520a5b469534f178e1105fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9053432629779399052
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +244,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.49803925, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.15506814, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
