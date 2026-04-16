@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class InteractionDetector : MonoBehaviour
 {
-    private IInteractable interactableInRange = null; //Closest Interactable
     public GameObject interactionIcon;
     public Player player;
+
+    List<IInteractable> interactablesInRange = new List<IInteractable>();
+    private IInteractable closestInteractable = null;
 
     void Start()
     {
@@ -15,6 +17,8 @@ public class InteractionDetector : MonoBehaviour
 
     void Update()
     {
+        SearchNewTarget();
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (player.IsCarrying())
@@ -23,26 +27,60 @@ public class InteractionDetector : MonoBehaviour
             }
             else
             {
-                interactableInRange?.Interact(player);
+                closestInteractable?.Interact(player);
             }
         }
+    }
+
+    void SearchNewTarget()
+    {
+        IInteractable closestTarget = null;
+        float minDistance = Mathf.Infinity;
+
+        foreach (IInteractable target in interactablesInRange)
+        {
+            if (target == null || !target.CanInteract()) continue;
+
+            float distance = Vector2.Distance(transform.position, target.GetTransform().position);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestTarget = target;
+            }
+        }
+
+        closestInteractable = closestTarget;
+
+        interactionIcon.SetActive(closestTarget != null); // show or hide the icon
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out IInteractable interactable) && interactable.CanInteract())
         {
-            interactableInRange = interactable;
-            interactionIcon.SetActive(true);
+            if (!interactable.CanInteract()) return;
+            
+            if (!interactablesInRange.Contains(interactable))
+            {
+                interactablesInRange.Add(interactable);
+            }
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out IInteractable interactable) && interactable == interactableInRange)
+        if (collision.TryGetComponent(out IInteractable interactable))
         {
-            interactableInRange = null;
-            interactionIcon.SetActive(false);
+            if (interactablesInRange.Contains(interactable))
+            {
+                interactablesInRange.Remove(interactable);
+
+                if (closestInteractable == interactable)
+                {
+                    closestInteractable = null;
+                }
+            }
         }
     }
 }
