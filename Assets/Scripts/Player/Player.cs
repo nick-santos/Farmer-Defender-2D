@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     private ICarryable carriedObject;
     public bool readyToUse = false;
     public LayerMask userTargetLayer;
+    private int originalLayer;
+    
+    public GameObject rangeVisual;
 
     private Rigidbody2D rb;
 
@@ -35,12 +38,11 @@ public class Player : MonoBehaviour
         return carriedObject != null;
     }
 
-    public GameObject MousePositionTrack(LayerMask layer)
+    public GameObject MousePositionTrack(LayerMask mask)
     {
         if (Input.GetMouseButtonDown(0)) {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, layer);
-
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, mask);
             if (hit.collider != null) {
                 GameObject selectedObject = hit.collider.gameObject;
                 Debug.Log("Selected: " + selectedObject.name);
@@ -48,6 +50,17 @@ public class Player : MonoBehaviour
             }
         }
         return null;
+    }
+
+    bool IsInRange(Transform carriedObj, GameObject target, float range)
+    {
+        float distance = Vector2.Distance(carriedObj.position, target.transform.position);
+        return distance <= range;
+    }
+    
+    void UpdateRangeVisual(float range)
+    {
+        rangeVisual.transform.localScale = new Vector3(range * 2, range * 2, 1);
     }
 
     public void PickUp(ICarryable obj)
@@ -62,9 +75,18 @@ public class Player : MonoBehaviour
         var rb = carriedObject.GetTransform().GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.simulated = false;
+            rb.bodyType = RigidbodyType2D.Kinematic;
             //rb.linearVelocity = Vector2.zero;
         }
+
+        GameObject objGO = carriedObject.GetTransform().gameObject;
+        originalLayer = objGO.layer;
+        objGO.layer = LayerMask.NameToLayer("HeldItem");
+
+        var playerCol = GetComponent<Collider2D>();
+        var itemCol = carriedObject.GetTransform().GetComponent<Collider2D>();
+
+        Physics2D.IgnoreCollision(playerCol, itemCol, true);
 
         carriedObject.OnPickup();
     }
@@ -81,9 +103,17 @@ public class Player : MonoBehaviour
         var rb = carriedObject.GetTransform().GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.simulated = true;
+            rb.bodyType = RigidbodyType2D.Dynamic;
             //rb.linearVelocity = Vector2.zero;
         }
+
+        GameObject objGO = carriedObject.GetTransform().gameObject;
+        objGO.layer = originalLayer;
+
+        var playerCol = GetComponent<Collider2D>();
+        var itemCol = carriedObject.GetTransform().GetComponent<Collider2D>();
+
+        Physics2D.IgnoreCollision(playerCol, itemCol, false);
 
         carriedObject.OnDrop();
 
@@ -95,14 +125,27 @@ public class Player : MonoBehaviour
         if (!IsCarrying()) return;
 
         if (carriedObject is not IUsable usable) return;
-        
+
         GameObject clickedObject = MousePositionTrack(userTargetLayer);
 
         if (clickedObject == null) return;
-
         if (readyToUse)
         {
-            usable.Use(clickedObject);
+            if (IsInRange(carriedObject.GetTransform(), clickedObject, usable.UseRange))
+            {
+                usable.Use(clickedObject);
+            }
+            else
+            {
+                Debug.Log("Out of range");
+            }
+
+            var col = carriedObject.GetTransform().GetComponent<Collider2D>();
+            if (col != null)
+            {
+                col.enabled = true;
+            }
+            rangeVisual.SetActive(false);
             readyToUse = false;
             return;
         }
@@ -110,6 +153,15 @@ public class Player : MonoBehaviour
         if (clickedObject == carriedObject.GetTransform().gameObject)
         {
             readyToUse = true;
+
+            var col = carriedObject.GetTransform().GetComponent<Collider2D>();
+            if (col != null)
+            {
+                col.enabled = false;
+            }
+
+            UpdateRangeVisual(usable.UseRange);
+            rangeVisual.SetActive(true);
         }
     }
 

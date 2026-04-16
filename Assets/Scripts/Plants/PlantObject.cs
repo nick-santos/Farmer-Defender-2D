@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantObject : MonoBehaviour, IInteractable, ICarryable
+public class PlantObject : MonoBehaviour, IInteractable, ICarryable, IUsable
 {
     private bool isCarried = false;
+
+    public float useRange = 3f;
+    public float UseRange => useRange;
 
     public bool CanInteract()
     {
@@ -32,5 +35,15 @@ public class PlantObject : MonoBehaviour, IInteractable, ICarryable
     public void OnDrop()
     {
         isCarried = false;
+    }
+
+    public void Use(GameObject target)
+    {
+
+    }
+
+    void OnMouseDown()
+    {
+        Debug.Log("CLIQUE NA PLANTA");
     }
 }

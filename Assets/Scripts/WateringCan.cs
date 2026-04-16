@@ -14,6 +14,9 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     private int plantNeededWater;
     private bool isCarried = false;
 
+    public float useRange = 2f;
+    public float UseRange => useRange;
+
     public Transform targetPlant;
 
     private Coroutine fillCanCoroutine;
@@ -60,8 +63,8 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     public void Use(GameObject target)
     {
         if (target == null) return;
-        
-        Debug.Log("TARGETINNNN: " + target.name);
+
+        Debug.Log("TARGET: " + target.name);
         if (target.transform.tag != "Plant") return;
 
         if(isCarried) // && targetPlant != null && isNearPlant
