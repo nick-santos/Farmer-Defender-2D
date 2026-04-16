@@ -10,7 +10,6 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     public int wateringCanMax = 30;
     public float fillCanTimeRate = 0.5f;
 
-    private bool isNearPlant = false;
     private int plantNeededWater;
     private bool isCarried = false;
 
@@ -33,7 +32,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 
     public bool CanInteract()
     {
-        // if not carrying anything
+        // if not carrying
         return !isCarried;
     }
 
@@ -64,7 +63,6 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     {
         if (target == null) return;
 
-        Debug.Log("TARGET: " + target.name);
         if (target.transform.tag != "Plant") return;
 
         if(isCarried) // && targetPlant != null && isNearPlant
@@ -117,12 +115,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag == "Plant")
-        {
-            isNearPlant = true;
-            targetPlant = collision.transform;
-        }
-        else if(collision.transform.tag == "Well")
+        if(collision.transform.tag == "Well")
         {
             fillCanCoroutine = StartCoroutine(FillWateringCan());
             Debug.Log(waterQuantity);
@@ -131,15 +124,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.transform.tag == "Plant")
-        {
-            isNearPlant = false;
-            if(targetPlant == collision.transform)
-            {
-                targetPlant = null;
-            }
-        }
-        else if(collision.transform.tag == "Well")
+        if(collision.transform.tag == "Well")
         {
             if (fillCanCoroutine != null)
             {
