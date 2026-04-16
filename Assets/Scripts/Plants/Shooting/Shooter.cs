@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class Shooter : MonoBehaviour
+public class Shooter : MonoBehaviour, IPlantAbility
 {
     [Header("References")]
     public Transform muzzlePoint;
@@ -57,6 +57,12 @@ public class Shooter : MonoBehaviour
         }
     }
 
+    public void Activate(GameObject abilityTarget)
+    {
+        Debug.Log("Shooting " + abilityTarget.transform.name);
+        target = abilityTarget.transform;
+    }
+
     private void Shoot()
     {
         GameObject projObj = Instantiate(projectile, muzzlePoint.position, Quaternion.identity);
@@ -89,6 +95,4 @@ public class Shooter : MonoBehaviour
         //muzzleRotationPoint.rotation = targetRotation;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
-
-
 }

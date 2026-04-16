@@ -33,13 +33,16 @@ public class EntityStatus : MonoBehaviour
 
         if(healthPoints <= 0 && !isDestroyed)
         {
-            WaveManager.onEnemyDestroy.Invoke();
-            isDestroyed = true;
-
+            if (transform.tag == "Enemy")
+            {
+                WaveManager.onEnemyDestroy.Invoke();
+            }
             if (transform.tag != "Player")
             {
                 Destroy(this.gameObject);
             }
+            
+            isDestroyed = true;
         }
     }
 

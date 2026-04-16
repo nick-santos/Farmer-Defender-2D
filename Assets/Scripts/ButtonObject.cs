@@ -21,4 +21,12 @@ public class ButtonObject : MonoBehaviour, IInteractable
             Debug.Log("Pressed");
         }
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.transform.tag != "Projectile")
+        {
+            Debug.Log("Pressed");
+        }
+    }
 }

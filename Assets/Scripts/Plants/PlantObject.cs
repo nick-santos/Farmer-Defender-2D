@@ -9,6 +9,13 @@ public class PlantObject : MonoBehaviour, IInteractable, ICarryable, IUsable
     public float useRange = 3f;
     public float UseRange => useRange;
 
+    IPlantAbility ability;
+
+    void Start()
+    {
+        ability = GetComponent<IPlantAbility>();
+    }
+
     public bool CanInteract()
     {
         return !isCarried;
@@ -39,7 +46,10 @@ public class PlantObject : MonoBehaviour, IInteractable, ICarryable, IUsable
 
     public void Use(GameObject target)
     {
-
+        if (ability != null)
+        {
+            ability.Activate(target);
+        }
     }
 
     void OnMouseDown()
