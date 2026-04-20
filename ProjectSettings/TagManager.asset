@@ -4,12 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Base
-  - Projectile
-  - Enemy
   - Plant
-  - Well
+  - Projectile
   - Colliders/Hitbox
+  - Enemy
+  - Base
+  - Well
   layers:
   - Default
   - TransparentFX
@@ -45,14 +45,11 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Background
-    uniqueID: 546891047
+    uniqueID: 1834745177
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 2019942775
-    locked: 0
   - name: UI
-    uniqueID: 1261847509
+    uniqueID: 999330197
     locked: 0
