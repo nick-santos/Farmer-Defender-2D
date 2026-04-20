@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ButtonObject : MonoBehaviour, IInteractable
 {
+    public event EventHandler OnButtonPressed;
+
     public Transform GetTransform()
     {
         return transform;
@@ -18,15 +21,15 @@ public class ButtonObject : MonoBehaviour, IInteractable
     {
         if (CanInteract())
         {
-            Debug.Log("Pressed");
+            OnButtonPressed?.Invoke(this, EventArgs.Empty);
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag != "Projectile")
+        if(collision.transform.tag == "Projectile")
         {
-            Debug.Log("Pressed");
+            OnButtonPressed?.Invoke(this, EventArgs.Empty);
         }
     }
 }
