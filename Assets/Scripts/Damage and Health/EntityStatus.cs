@@ -4,13 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public enum Team
+{
+    Player,
+    Enemy,
+    Neutral
+}
+
 public class EntityStatus : MonoBehaviour
 {
     [Header("Attributes")]
     public float healthPoints;
     public float maxHealthPoints;
-    public float baseDamage;
     //public Image Heart;
+
+    [Header("Combat")]
+    public Team team;
 
     private bool isDestroyed = false;
 
@@ -29,10 +38,14 @@ public class EntityStatus : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (isDestroyed) return;
+
         healthPoints -= damage;
 
-        if(healthPoints <= 0 && !isDestroyed)
+        if(healthPoints <= 0)
         {
+            isDestroyed = true;
+
             if (transform.tag == "Enemy")
             {
                 WaveManager.onEnemyDestroy.Invoke();
@@ -41,20 +54,20 @@ public class EntityStatus : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
-            
-            isDestroyed = true;
         }
     }
 
     void OnTriggerEnter2D (Collider2D collision)
     {
-        if(collision.transform.tag == "Colliders/Hitbox")
-        {
-            Transform adversary = collision.transform.parent;
-            EntityStatus adversaryStatus = adversary.GetComponent<EntityStatus>();
-            TakeDamage(adversaryStatus.baseDamage);
-            //healthPoints -= adversaryStatus.baseDamage;
-            Debug.Log($"Damage in {transform.name}");
-        }
+        if (!collision.CompareTag("Colliders/Hitbox")) return;
+
+        DamageDealer damageDealer = collision.GetComponent<DamageDealer>();
+
+        if (damageDealer == null) return;
+
+        if (damageDealer.team == this.team) return;
+
+        TakeDamage(damageDealer.damage);
+        Debug.Log($"Damage in {transform.name}");
     }   
 }

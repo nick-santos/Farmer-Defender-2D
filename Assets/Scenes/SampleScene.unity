@@ -3039,6 +3039,7 @@ GameObject:
   - component: {fileID: 852818057}
   - component: {fileID: 852818059}
   - component: {fileID: 852818060}
+  - component: {fileID: 852818061}
   m_Layer: 0
   m_Name: Base (Placeholder)
   m_TagString: Base
@@ -3156,11 +3157,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852818056}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e9bcab0a0706442bc2f95c1f9a8f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &852818061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852818056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0379dd277afd4f74e8483f170dffe3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 100
+  maxHealthPoints: 100
+  baseDamage: 0
 --- !u!1 &893226261
 GameObject:
   m_ObjectHideFlags: 0

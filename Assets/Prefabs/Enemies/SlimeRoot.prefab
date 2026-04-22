@@ -90,6 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4638572372060796390}
   - component: {fileID: 4668689271803157489}
+  - component: {fileID: 3449407548249057280}
   m_Layer: 29
   m_Name: Hitbox
   m_TagString: Colliders/Hitbox
@@ -147,6 +148,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.03}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!114 &3449407548249057280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2393091179704850931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfccf360c0d32514b8fa3100080a2286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  team: 1
 --- !u!1 &2868455481214250361
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 8912519823351008965}
+  mode: 0
   speed: 2
   direction: 1
   isSeeing: 0
@@ -365,6 +381,7 @@ MonoBehaviour:
   healthPoints: 5
   maxHealthPoints: 5
   baseDamage: 1
+  team: 1
 --- !u!1 &8912519823351008965
 GameObject:
   m_ObjectHideFlags: 0

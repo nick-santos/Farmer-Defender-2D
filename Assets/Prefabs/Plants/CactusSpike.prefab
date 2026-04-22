@@ -181,6 +181,7 @@ MonoBehaviour:
   healthPoints: 100
   maxHealthPoints: 100
   baseDamage: 1
+  team: 0
 --- !u!1 &7504522112558198460
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2811706591151757552}
   - component: {fileID: 7579014002912830987}
+  - component: {fileID: 5243994110977863915}
   m_Layer: 29
   m_Name: Hitbox
   m_TagString: Colliders/Hitbox
@@ -248,3 +250,17 @@ CapsuleCollider2D:
   m_Offset: {x: -0.02, y: 0.05292385}
   m_Size: {x: 0.3210874, y: 0.17695455}
   m_Direction: 1
+--- !u!114 &5243994110977863915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7504522112558198460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfccf360c0d32514b8fa3100080a2286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  team: 0
