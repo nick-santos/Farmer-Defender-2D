@@ -95,6 +95,17 @@ public class Player : MonoBehaviour
     {
         if (carriedObject == null) return;
 
+        if (readyToUse)
+        {
+            var col = carriedObject.GetTransform().GetComponent<Collider2D>();
+            if (col != null)
+            {
+                col.enabled = true;
+            }
+            rangeVisual.SetActive(false);
+            readyToUse = false;
+        }
+
         carriedObject.GetTransform().SetParent(null);
 
         Vector3 dropPosition = transform.position + transform.right;
