@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
+using Random=UnityEngine.Random;
 
 public class WaveManager : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class WaveManager : MonoBehaviour
     public Transform baseTransform; // Center of radius
     public Camera targetCamera;
     public GameObject[] enemyPrefabs;
+    public WorldTime worldTime;
 
     [Header("Attributes")]
     public int baseEnemies = 8;
@@ -39,11 +42,13 @@ public class WaveManager : MonoBehaviour
             onEnemyDestroy = new UnityEvent();
         }
         onEnemyDestroy.AddListener(EnemyDestroyed);
+
+        worldTime.NightTime += OnNightTime;
     }
 
     void Start()
     {
-        StartCoroutine(StartWave());
+        //StartCoroutine(StartWave());
     }
 
     void Update()
@@ -68,6 +73,17 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        worldTime.NightTime -= OnNightTime;
+    }
+
+    private void OnNightTime(object sender, EventArgs e)
+    {
+        Debug.Log("NIGHT");
+        StartCoroutine(StartWave());
+    }
+
     private void EnemyDestroyed()
     {
         enemiesAlive--;
@@ -75,9 +91,9 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator StartWave()
     {
-        yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
+        yield return null;
     }
 
     void EndWave()
@@ -85,7 +101,6 @@ public class WaveManager : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
-        StartCoroutine(StartWave());
     }
 
     bool SpawnEnemy()

@@ -466,29 +466,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2393091179704850931, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
-      propertyPath: m_Layer
-      value: 29
-      objectReference: {fileID: 0}
     - target: {fileID: 2868455481214250361, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
       propertyPath: m_Name
       value: Slime Test
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668689271803157489, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 805306368
-      objectReference: {fileID: 0}
-    - target: {fileID: 5118408977490006732, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 5118408977490006732, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 5656611423020290918, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
-      propertyPath: m_Radius
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6514,7 +6494,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114979525}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ad3e902680dd5845bc8bba38b4829c9, type: 3}
   m_Name: 
@@ -6523,7 +6503,8 @@ MonoBehaviour:
   baseTransform: {fileID: 852818058}
   targetCamera: {fileID: 519420031}
   enemyPrefabs:
-  - {fileID: 2868455481214250361, guid: cad867d11350a8c42a68c9e5a6cc4fe4, type: 3}
+  - {fileID: 2868455481214250361, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+  worldTime: {fileID: 2114979530}
   baseEnemies: 8
   enemiesPerSecond: 0.5
   timeBetweenWaves: 5
@@ -6593,7 +6574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381f9ce60e0f3e6468561ab5d08732c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayLength: 360
+  dayLength: 60
 --- !u!1001 &5486289556476387991
 PrefabInstance:
   m_ObjectHideFlags: 0
