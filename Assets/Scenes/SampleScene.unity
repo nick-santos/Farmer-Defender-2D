@@ -6503,7 +6503,7 @@ MonoBehaviour:
   baseTransform: {fileID: 852818058}
   targetCamera: {fileID: 519420031}
   enemyPrefabs:
-  - {fileID: 2868455481214250361, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+  - {fileID: 2868455481214250361, guid: d22981f19aa2db14ea8547e8939bb7c2, type: 3}
   worldTime: {fileID: 2114979530}
   baseEnemies: 8
   enemiesPerSecond: 0.5

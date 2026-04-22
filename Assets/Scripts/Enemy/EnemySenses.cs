@@ -43,7 +43,7 @@ public class EnemySenses : MonoBehaviour
         {
             targetsInRange.Add(collision.transform);
 
-            if (parent.targetTransform == null)
+            if (parent.isSeeing == false)
             {
                 parent.targetTransform = collision.transform;
                 parent.isSeeing = true;
