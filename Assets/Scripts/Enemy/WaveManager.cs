@@ -10,7 +10,6 @@ public class WaveManager : MonoBehaviour
     //public static WaveManager main;
 
     [Header("References")]
-    public Transform startPoint;
     public Transform baseTransform; // Center of radius
     public Camera targetCamera;
     public GameObject[] enemyPrefabs;
