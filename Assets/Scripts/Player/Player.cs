@@ -40,7 +40,8 @@ public class Player : MonoBehaviour
 
     public GameObject MousePositionTrack(LayerMask mask)
     {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, mask);
             if (hit.collider != null) {
@@ -97,13 +98,7 @@ public class Player : MonoBehaviour
 
         if (readyToUse)
         {
-            var col = carriedObject.GetTransform().GetComponent<Collider2D>();
-            if (col != null)
-            {
-                col.enabled = true;
-            }
-            rangeVisual.SetActive(false);
-            readyToUse = false;
+            StopUseItem();
         }
 
         carriedObject.GetTransform().SetParent(null);
@@ -139,7 +134,13 @@ public class Player : MonoBehaviour
 
         GameObject clickedObject = MousePositionTrack(userTargetLayer);
 
+        if (Input.GetMouseButtonDown(1) && readyToUse)
+        {
+            StopUseItem();
+        }
+
         if (clickedObject == null) return;
+
         if (readyToUse)
         {
             if (IsInRange(carriedObject.GetTransform(), clickedObject, usable.UseRange))
@@ -151,13 +152,7 @@ public class Player : MonoBehaviour
                 Debug.Log("Out of range");
             }
 
-            var col = carriedObject.GetTransform().GetComponent<Collider2D>();
-            if (col != null)
-            {
-                col.enabled = true;
-            }
-            rangeVisual.SetActive(false);
-            readyToUse = false;
+            StopUseItem();
             return;
         }
 
@@ -174,6 +169,19 @@ public class Player : MonoBehaviour
             UpdateRangeVisual(usable.UseRange);
             rangeVisual.SetActive(true);
         }
+    }
+
+    void StopUseItem()
+    {
+        var col = carriedObject.GetTransform().GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = true;
+        }
+        rangeVisual.SetActive(false);
+        readyToUse = false;
+        return;
+        // if (Input.GetMouseButtonDown(0))
     }
 
     void Move()
