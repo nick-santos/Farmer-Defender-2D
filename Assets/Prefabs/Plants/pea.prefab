@@ -48,7 +48,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 805322816
+    m_Bits: 805323840
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -186,7 +186,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 805322816
+    m_Bits: 805323840
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -262,5 +262,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 100
   maxHealthPoints: 100
-  baseDamage: 2
   team: 0

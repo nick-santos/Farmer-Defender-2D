@@ -131,7 +131,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 805322816
+    m_Bits: 805323840
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -180,7 +180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 100
   maxHealthPoints: 100
-  baseDamage: 1
   team: 0
 --- !u!1 &7504522112558198460
 GameObject:
@@ -230,7 +229,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 813711424
+    m_Bits: 813712448
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
