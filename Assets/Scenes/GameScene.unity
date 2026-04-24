@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 171187424}
   - component: {fileID: 171187423}
   - component: {fileID: 171187422}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5713,7 +5713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1901511064}
   - component: {fileID: 1901511063}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6666,7 +6666,7 @@ GameObject:
   - component: {fileID: 2141204068}
   - component: {fileID: 2141204067}
   - component: {fileID: 2141204066}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}

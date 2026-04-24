@@ -23,6 +23,9 @@ public class EntityStatus : MonoBehaviour
 
     private bool isDestroyed = false;
 
+    // Individual Timer for overtime damage from each attacker
+    private Dictionary<DamageDealer, float> damageTimers = new Dictionary<DamageDealer, float>();
+
     void Start()
     {
         healthPoints = maxHealthPoints;
@@ -41,6 +44,8 @@ public class EntityStatus : MonoBehaviour
         if (isDestroyed) return;
 
         healthPoints -= damage;
+
+        //Debug.Log($"{transform.name} recebeu {damage} de dano. Vida restante: {healthPoints}");
 
         if(healthPoints <= 0)
         {
@@ -62,6 +67,9 @@ public class EntityStatus : MonoBehaviour
         }
     }
 
+    //-----------------//
+    // INSTANT DAMAGE //
+
     void OnTriggerEnter2D (Collider2D collision)
     {
         if (!collision.CompareTag("Colliders/Hitbox")) return;
@@ -72,7 +80,57 @@ public class EntityStatus : MonoBehaviour
 
         if (damageDealer.team == this.team) return;
 
+        if (damageDealer.damageType != DamageType.Instant) return;
+
         TakeDamage(damageDealer.damage);
-        Debug.Log($"Damage in {transform.name}");
+        Debug.Log($"Instant Damage in {transform.name}");
     }   
+
+    //-----------------//
+    // OVERTIME DAMAGE //
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Colliders/Hitbox")) return;
+
+        DamageDealer damageDealer = collision.GetComponent<DamageDealer>();
+
+        if (damageDealer == null) return;
+
+        // deal with teams
+        if (damageDealer.team == this.team) return;
+
+        // overtime damage
+        if (damageDealer.damageType != DamageType.OverTime) return;
+
+        // creates individual timer
+        if (!damageTimers.ContainsKey(damageDealer))
+        {
+            damageTimers.Add(damageDealer, 0f);
+        }
+
+        // Add time in all timers
+        damageTimers[damageDealer] += Time.deltaTime;
+
+        if (damageTimers[damageDealer] >= damageDealer.damageInterval)
+        {
+            TakeDamage(damageDealer.damage);
+            damageTimers[damageDealer] = 0f;
+
+            Debug.Log($"Damage Over Time in {transform.name}");
+        }
+    }
+
+    //-----------------//
+    // EXIT CONTACT //
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        DamageDealer damageDealer = collision.GetComponent<DamageDealer>();
+
+        if (damageDealer != null && damageTimers.ContainsKey(damageDealer))
+        {
+            damageTimers.Remove(damageDealer);
+        }
+    }
 }

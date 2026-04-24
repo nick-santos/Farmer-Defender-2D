@@ -162,6 +162,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   team: 1
+  damageType: 1
+  damageInterval: 1
 --- !u!1 &2868455481214250361
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +382,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 5
   maxHealthPoints: 5
-  baseDamage: 1
   team: 1
 --- !u!1 &8912519823351008965
 GameObject:
