@@ -55,6 +55,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     public void OnPickup()
     {
         isCarried = true;
+        StopFilling();
     }
 
     public void OnDrop()
@@ -107,6 +108,15 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
         yield return null;
     }
 
+    void StopFilling()
+    {
+        if (fillCanCoroutine != null)
+        {
+            StopCoroutine(fillCanCoroutine);
+            fillCanCoroutine = null;
+        }
+    }
+
     public bool SpendWater(int amount)
     {
         if(amount <= currentWater)
@@ -127,7 +137,6 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
         if(collision.transform.tag == "Well")
         {
             fillCanCoroutine = StartCoroutine(FillWateringCan());
-            //Debug.Log(currentWater);
         }
     }
 
@@ -135,11 +144,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     {
         if(collision.transform.tag == "Well")
         {
-            if (fillCanCoroutine != null)
-            {
-                StopCoroutine(fillCanCoroutine);
-            }
-            //Debug.Log(currentWater);
+            StopFilling();
         }
     }
 }

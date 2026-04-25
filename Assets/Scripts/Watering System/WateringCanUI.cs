@@ -11,7 +11,6 @@ public class WateringCanUI : MonoBehaviour
 
     public void UpdateUI(int currentWater)
     {
-        Debug.Log(currentWater);
         for (int i = 0; i < waterPills.Length; i++)
         {
             if (currentWater <= 0)
