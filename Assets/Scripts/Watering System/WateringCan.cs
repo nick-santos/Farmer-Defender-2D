@@ -5,10 +5,11 @@ using UnityEngine;
 public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 {
     public static WateringCan main;
+    private WateringCanUI UI;
 
-    public int waterQuantity;
-    public int wateringCanMax = 30;
-    public float fillCanTimeRate = 0.5f;
+    public int currentWater;
+    public int wateringCanMax = 15;
+    public float fillCanTimeRate = 1f;
 
     private int plantNeededWater;
     private bool isCarried = false;
@@ -27,7 +28,9 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 
     void Start()
     {
-        waterQuantity = 10;
+        UI = GetComponent<WateringCanUI>();
+        currentWater = 10;
+        UI.UpdateUI(currentWater);
     }
 
     public bool CanInteract()
@@ -73,7 +76,8 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
                 
                 if(SpendWater(plantNeededWater))
                 {
-                    Debug.Log(waterQuantity);
+                    //Debug.Log(currentWater);
+                    UI.UpdateUI(currentWater);
                     target.GetComponent<WaterReceiver>().ReceiveWater();
                 }
             }
@@ -82,28 +86,33 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 
     public void IncreaseWater(int amount)
     {
-        waterQuantity += amount;
-        if(waterQuantity > wateringCanMax)
+        currentWater += amount;
+        if(currentWater > wateringCanMax)
         {
-            waterQuantity = wateringCanMax;
+            currentWater = wateringCanMax;
         }
+        UI.UpdateUI(currentWater);
     }
 
     private IEnumerator FillWateringCan()
     {
-        while (waterQuantity < wateringCanMax)
+        if (currentWater < wateringCanMax)
         {
             yield return new WaitForSeconds(fillCanTimeRate);
             
-            waterQuantity += 1;
+            currentWater += 1;
+            UI.UpdateUI(currentWater);
+            fillCanCoroutine = StartCoroutine(FillWateringCan());
         }
+        yield return null;
     }
 
     public bool SpendWater(int amount)
     {
-        if(amount <= waterQuantity)
+        if(amount <= currentWater)
         {
-            waterQuantity -= amount;
+            currentWater -= amount;
+            UI.UpdateUI(currentWater);
             return true;
         }
         else
@@ -118,7 +127,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
         if(collision.transform.tag == "Well")
         {
             fillCanCoroutine = StartCoroutine(FillWateringCan());
-            Debug.Log(waterQuantity);
+            //Debug.Log(currentWater);
         }
     }
 
@@ -130,7 +139,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
             {
                 StopCoroutine(fillCanCoroutine);
             }
-            Debug.Log(waterQuantity);
+            //Debug.Log(currentWater);
         }
     }
 }
