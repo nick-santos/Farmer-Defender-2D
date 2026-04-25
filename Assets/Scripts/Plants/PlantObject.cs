@@ -8,12 +8,15 @@ public class PlantObject : MonoBehaviour, IInteractable, ICarryable, IUsable
 
     public float useRange = 3f;
     public float UseRange => useRange;
+    public float healingFromWater = 1f;
 
     IPlantAbility ability;
+    EntityStatus health;
 
     void Start()
     {
         ability = GetComponent<IPlantAbility>();
+        health = GetComponent<EntityStatus>();
     }
 
     public bool CanInteract()
@@ -55,5 +58,10 @@ public class PlantObject : MonoBehaviour, IInteractable, ICarryable, IUsable
     void OnMouseDown()
     {
         Debug.Log("CLIQUE NA PLANTA");
+    }
+
+    public void OnGetWatered()
+    {
+        health.Heal(healingFromWater);
     }
 }

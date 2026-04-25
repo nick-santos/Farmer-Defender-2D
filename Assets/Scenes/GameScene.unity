@@ -6348,14 +6348,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CactusShooter
       objectReference: {fileID: 0}
-    - target: {fileID: 5253060481019579510, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: healEffectPrefab
-      value: 
-      objectReference: {fileID: 3988490856238223438, guid: 09b2859fe763f4b429897a0504fb9ebd, type: 3}
-    - target: {fileID: 5253060481019579510, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
-      propertyPath: damageEffectPrefab
-      value: 
-      objectReference: {fileID: 3988490856238223438, guid: f9b9922db0b3c9c4199f6b9e42ccc1c0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

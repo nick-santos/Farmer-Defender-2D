@@ -19,6 +19,7 @@ public class WaterReceiver : MonoBehaviour
     public bool isSeedling = true;
 
     private Coroutine wateringCoroutine;
+    private PlantObject plant;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +27,7 @@ public class WaterReceiver : MonoBehaviour
         srPlant = GetComponent<SpriteRenderer>();
         waterIcon.SetActive(true);
         GetComponent<Shooter>().enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        plant = GetComponent<PlantObject>();
     }
 
     private IEnumerator IndicateWaterIsNeededAfterTime()
@@ -71,5 +67,6 @@ public class WaterReceiver : MonoBehaviour
 
         wateringCoroutine = StartCoroutine(IndicateWaterIsNeededAfterTime());
         
+        if (plant != null) plant.OnGetWatered();
     }
 }

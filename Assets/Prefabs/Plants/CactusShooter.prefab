@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useRange: 5
+  healingFromWater: 1
 --- !u!114 &1317271857147193772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,8 +320,8 @@ MonoBehaviour:
   healthPoints: 15
   maxHealthPoints: 15
   team: 0
-  healEffectPrefab: {fileID: 0}
-  damageEffectPrefab: {fileID: 0}
+  healEffectPrefab: {fileID: 3988490856238223438, guid: 09b2859fe763f4b429897a0504fb9ebd, type: 3}
+  damageEffectPrefab: {fileID: 3988490856238223438, guid: f9b9922db0b3c9c4199f6b9e42ccc1c0, type: 3}
   effectSpawnPoint: {fileID: 1560524206446215792}
 --- !u!1 &5271081050988373206
 GameObject:
