@@ -21,6 +21,11 @@ public class EntityStatus : MonoBehaviour
     [Header("Combat")]
     public Team team;
 
+    [Header("Visual Effects")]
+    public GameObject healEffectPrefab;
+    public GameObject damageEffectPrefab;
+    public Transform effectSpawnPoint;
+
     private bool isDestroyed = false;
 
     // Individual Timer for overtime damage from each attacker
@@ -39,11 +44,32 @@ public class EntityStatus : MonoBehaviour
         // }
     }
 
+    void SpawnEffect(GameObject effectPrefab)
+    {
+        if (effectPrefab == null) return;
+
+        if (effectSpawnPoint == null) return;
+
+        Instantiate(effectPrefab, effectSpawnPoint.position, Quaternion.identity);
+    }
+
+    public void Heal(float amount)
+    {
+        if (isDestroyed) return;
+
+        healthPoints += amount;
+        healthPoints = Mathf.Clamp(healthPoints, 0, maxHealthPoints);
+
+        SpawnEffect(healEffectPrefab);
+    }
+
     public void TakeDamage(float damage)
     {
         if (isDestroyed) return;
 
         healthPoints -= damage;
+
+        SpawnEffect(damageEffectPrefab);
 
         //Debug.Log($"{transform.name} recebeu {damage} de dano. Vida restante: {healthPoints}");
 

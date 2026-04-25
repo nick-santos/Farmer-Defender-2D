@@ -2760,6 +2760,7 @@ Transform:
   - {fileID: 51142749}
   - {fileID: 1004454969}
   - {fileID: 1485493623}
+  - {fileID: 1751173446}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &737909546
@@ -2903,6 +2904,9 @@ MonoBehaviour:
   healthPoints: 30
   maxHealthPoints: 30
   team: 0
+  healEffectPrefab: {fileID: 3988490856238223438, guid: 09b2859fe763f4b429897a0504fb9ebd, type: 3}
+  damageEffectPrefab: {fileID: 3988490856238223438, guid: f9b9922db0b3c9c4199f6b9e42ccc1c0, type: 3}
+  effectSpawnPoint: {fileID: 1751173446}
 --- !u!1 &747350663
 GameObject:
   m_ObjectHideFlags: 0
@@ -3475,6 +3479,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &832727619
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1084919169664739534, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.249841
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084919169664739534, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.2060452
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084919169664739534, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084919169664739534, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084919169664739534, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084919169664739534, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084919169664739534, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084919169664739534, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084919169664739534, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084919169664739534, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868455481214250361, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
+      propertyPath: m_Name
+      value: SlimeRoot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99d9ffd614643cf4998053a8994fa40d, type: 3}
 --- !u!1 &834440866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,6 +3752,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 893226262}
+  - {fileID: 1898215588}
   m_Father: {fileID: 1812811600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &852818059
@@ -3755,6 +3817,9 @@ MonoBehaviour:
   healthPoints: 100
   maxHealthPoints: 100
   team: 0
+  healEffectPrefab: {fileID: 3988490856238223438, guid: 09b2859fe763f4b429897a0504fb9ebd, type: 3}
+  damageEffectPrefab: {fileID: 3988490856238223438, guid: f9b9922db0b3c9c4199f6b9e42ccc1c0, type: 3}
+  effectSpawnPoint: {fileID: 1898215588}
 --- !u!1 &879446437
 GameObject:
   m_ObjectHideFlags: 0
@@ -6037,6 +6102,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1751173445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1751173446}
+  m_Layer: 0
+  m_Name: EffectSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1751173446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751173445}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 737909545}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1812811599
 GameObject:
   m_ObjectHideFlags: 0
@@ -6252,11 +6348,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: CactusShooter
       objectReference: {fileID: 0}
+    - target: {fileID: 5253060481019579510, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
+      propertyPath: healEffectPrefab
+      value: 
+      objectReference: {fileID: 3988490856238223438, guid: 09b2859fe763f4b429897a0504fb9ebd, type: 3}
+    - target: {fileID: 5253060481019579510, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
+      propertyPath: damageEffectPrefab
+      value: 
+      objectReference: {fileID: 3988490856238223438, guid: f9b9922db0b3c9c4199f6b9e42ccc1c0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a646a72d94e10b4686f32ba6a5d9e17, type: 3}
+--- !u!1 &1898215587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1898215588}
+  m_Layer: 0
+  m_Name: EffectSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1898215588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898215587}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.316, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 852818058}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1901511062
 GameObject:
   m_ObjectHideFlags: 0
@@ -7489,3 +7624,4 @@ SceneRoots:
   - {fileID: 1586468620}
   - {fileID: 792361272}
   - {fileID: 261286229}
+  - {fileID: 832727619}
