@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player Attributes")]
     public float speed;
     public Transform holdPoint;
 
+    [Header("Carry and Use")]
     private ICarryable carriedObject;
     public bool readyToUse = false;
     public LayerMask userTargetLayer;
     private int originalLayer;
-    
+
+    [Header("Range Visuals")]
     public GameObject rangeVisual;
 
     private Rigidbody2D rb;

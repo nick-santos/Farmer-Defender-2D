@@ -16,12 +16,12 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     public float useRange = 2f;
     public float UseRange => useRange;
 
-    public Transform targetPlant;
+    //public Transform targetPlant;
 
     private Coroutine fillCanCoroutine;
 
     private WateringCanUI UI;
-    private Animator anim;
+    public Animator anim;
 
     private void Awake()
     {
@@ -31,7 +31,6 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     void Start()
     {
         UI = GetComponent<WateringCanUI>();
-        anim = GetComponent<Animator>();
         currentWater = 10;
         UI.UpdateUI(currentWater);
     }
