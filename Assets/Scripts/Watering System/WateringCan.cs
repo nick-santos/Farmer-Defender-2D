@@ -5,7 +5,6 @@ using UnityEngine;
 public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 {
     public static WateringCan main;
-    private WateringCanUI UI;
 
     public int currentWater;
     public int wateringCanMax = 15;
@@ -21,6 +20,9 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 
     private Coroutine fillCanCoroutine;
 
+    private WateringCanUI UI;
+    private Animator anim;
+
     private void Awake()
     {
         main = this;
@@ -29,6 +31,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     void Start()
     {
         UI = GetComponent<WateringCanUI>();
+        anim = GetComponent<Animator>();
         currentWater = 10;
         UI.UpdateUI(currentWater);
     }
@@ -123,11 +126,13 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
         {
             currentWater -= amount;
             UI.UpdateUI(currentWater);
+            anim.SetTrigger("Water");
             return true;
         }
         else
         {
             Debug.Log("Not enough water");
+            anim.SetTrigger("CannotWater");
             return false;
         }
     }
