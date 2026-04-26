@@ -17,6 +17,8 @@ public class WaterReceiver : MonoBehaviour
     public float timeWithoutWatering = 10f;
     public bool canBeWatered = true;
     public bool isSeedling = true;
+    public int timesWateredToGrow = 2;
+    public int timesWatered = 0;
 
     private Coroutine wateringCoroutine;
     private PlantObject plant;
@@ -52,18 +54,21 @@ public class WaterReceiver : MonoBehaviour
 
     public void ReceiveWater()
     {
-        if(isSeedling)
-        {
-            if (plant != null) plant.OnGrow();
-            //srPlant.sprite = grownPlant;
-            isSeedling = false;
-            wateringCoroutine = StartCoroutine(IndicateWaterIsNeededAfterTime());
-            return;
-        }
 
         if (wateringCoroutine != null)
         {
             StopCoroutine(wateringCoroutine);
+        }
+        
+        if(isSeedling)
+        {
+            timesWatered++;
+
+            if (timesWatered >= timesWateredToGrow)
+            {
+                if (plant != null) plant.OnGrow();
+                isSeedling = false;
+            }
         }
 
         wateringCoroutine = StartCoroutine(IndicateWaterIsNeededAfterTime());
