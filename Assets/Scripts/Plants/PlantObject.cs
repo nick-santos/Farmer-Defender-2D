@@ -12,11 +12,13 @@ public class PlantObject : MonoBehaviour, IInteractable, ICarryable, IUsable
 
     IPlantAbility ability;
     EntityStatus health;
+    Animator anim;
 
     void Start()
     {
         ability = GetComponent<IPlantAbility>();
         health = GetComponent<EntityStatus>();
+        anim = GetComponent<Animator>();
     }
 
     public bool CanInteract()
@@ -63,5 +65,10 @@ public class PlantObject : MonoBehaviour, IInteractable, ICarryable, IUsable
     public void OnGetWatered()
     {
         health.Heal(healingFromWater);
+    }
+
+    public void OnGrow()
+    {
+        if (anim != null) anim.SetTrigger("Grow");
     }
 }

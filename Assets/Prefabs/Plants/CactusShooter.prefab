@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 1317271857147193772}
   - component: {fileID: 1288549618237642160}
   - component: {fileID: 5253060481019579510}
+  - component: {fileID: 57440891387380810}
   m_Layer: 14
   m_Name: CactusShooter
   m_TagString: Plant
@@ -166,7 +167,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1114321107, guid: 8a4ca5afd4d40b24589aaa8248e19a88, type: 3}
+  m_Sprite: {fileID: -1661409503, guid: 044627139c5811a4ab057865fed2fc48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -295,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d88b03b33bebafd4782d12c0d5a67611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grownPlant: {fileID: 1337562816, guid: 8a4ca5afd4d40b24589aaa8248e19a88, type: 3}
+  grownPlant: {fileID: 1601263117, guid: f74732796715a7145900e79a9e5b7b9a, type: 3}
   srPlant: {fileID: 3039974459714206788}
   waterIcon1: {fileID: 21300000, guid: fda1f496b9f9c274ab9946f39e16c401, type: 3}
   waterIcon2: {fileID: 21300000, guid: eac5b43f3a553be4fa45e72b80aaa5d5, type: 3}
@@ -323,6 +324,27 @@ MonoBehaviour:
   healEffectPrefab: {fileID: 3988490856238223438, guid: 09b2859fe763f4b429897a0504fb9ebd, type: 3}
   damageEffectPrefab: {fileID: 3988490856238223438, guid: f9b9922db0b3c9c4199f6b9e42ccc1c0, type: 3}
   effectSpawnPoint: {fileID: 1560524206446215792}
+--- !u!95 &57440891387380810
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602339824916494544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 72fa4ac4187e0f34d89811321c262e2b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5271081050988373206
 GameObject:
   m_ObjectHideFlags: 0

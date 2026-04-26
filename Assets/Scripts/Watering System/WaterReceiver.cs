@@ -54,6 +54,7 @@ public class WaterReceiver : MonoBehaviour
     {
         if(isSeedling)
         {
+            if (plant != null) plant.OnGrow();
             srPlant.sprite = grownPlant;
             isSeedling = false;
             wateringCoroutine = StartCoroutine(IndicateWaterIsNeededAfterTime());
