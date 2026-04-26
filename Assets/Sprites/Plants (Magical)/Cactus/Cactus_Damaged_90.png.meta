@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4078ecae19deb2b4da763117b7da99aa
+guid: 35df3ae6e00ebc44c872f584f6c22996
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cactus_Damaged_06_0
+      name: Cactus_Damaged_90_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bf0d90b41ab76a419ef4f782adb3efa
-      internalID: -1560226346
+      spriteID: 812f956db9258354bb37889645a77c8d
+      internalID: 843256856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus_Damaged_06_1
+      name: Cactus_Damaged_90_1
       rect:
         serializedVersion: 2
         x: 64
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e316b8995c3c60449bad38a03d420319
-      internalID: -976837003
+      spriteID: ff07c6046ea94ad4b957dd8f7018546f
+      internalID: 1199063557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus_Damaged_06_2
+      name: Cactus_Damaged_90_2
       rect:
         serializedVersion: 2
         x: 128
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fef5b6bb5a54604ab192f4b34582f83
-      internalID: -1886487993
+      spriteID: 1d31543132402df4c980dc837b873cfe
+      internalID: -1445066811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus_Damaged_06_3
+      name: Cactus_Damaged_90_3
       rect:
         serializedVersion: 2
         x: 0
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8be0ad2124db1b74fbebe5b75f34e5ca
-      internalID: -786420612
+      spriteID: 4acc95a38767e2445802d2d50a1048c6
+      internalID: 1627799365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus_Damaged_06_4
+      name: Cactus_Damaged_90_4
       rect:
         serializedVersion: 2
         x: 64
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a78fd2413b159ca44819fab67ff6bead
-      internalID: 1000911490
+      spriteID: e97c05bc91e51ca4d9c2d628d24db12d
+      internalID: -389608933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus_Damaged_06_5
+      name: Cactus_Damaged_90_5
       rect:
         serializedVersion: 2
         x: 128
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94da1636814d908469ec1df1e1b87bd8
-      internalID: -1022906547
+      spriteID: 1f5bd8bee75ca1c4d9fb9fa1dceb03d8
+      internalID: -52806785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus_Damaged_06_6
+      name: Cactus_Damaged_90_6
       rect:
         serializedVersion: 2
         x: 0
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d0c38c959579c64c9249f6c20164ff3
-      internalID: -257081029
+      spriteID: 6792dc6783c593249ae7960a56e42977
+      internalID: 1306553502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus_Damaged_06_7
+      name: Cactus_Damaged_90_7
       rect:
         serializedVersion: 2
         x: 64
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21ff196da276cbe44a52aa8ddee160b1
-      internalID: 1581753593
+      spriteID: ce1559882075a744da60ac7d6df570be
+      internalID: 34748313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus_Damaged_06_8
+      name: Cactus_Damaged_90_8
       rect:
         serializedVersion: 2
         x: 128
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 085748fa92d49d34d8b9bd5e875b8555
-      internalID: -1872033856
+      spriteID: 46356a1403eeeab4bab8f8dde4640137
+      internalID: -143447363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus_Damaged_06_9
+      name: Cactus_Damaged_90_9
       rect:
         serializedVersion: 2
         x: 0
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a926cc7df2cb8d54192a4fe285bffcc9
-      internalID: 1479882608
+      spriteID: e397e65d2512b0648a19f58c3b861970
+      internalID: 999160687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus_Damaged_06_10
+      name: Cactus_Damaged_90_10
       rect:
         serializedVersion: 2
         x: 64
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b783efe44533e314c9167d2d4bff8bef
-      internalID: -1149219997
+      spriteID: 9b6efff5bada7cb4c9cda04e7947f8ae
+      internalID: -407929355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus_Damaged_06_11
+      name: Cactus_Damaged_90_11
       rect:
         serializedVersion: 2
         x: 128
@@ -342,8 +342,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b284fdfc23ee864988bb18cbc4c6384
-      internalID: 564900815
+      spriteID: 37585675a337c624493b3d726cdbad38
+      internalID: -2049804097
       vertices: []
       indices: 
       edges: []
@@ -359,18 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cactus_Damaged_06_0: -1560226346
-      Cactus_Damaged_06_1: -976837003
-      Cactus_Damaged_06_10: -1149219997
-      Cactus_Damaged_06_11: 564900815
-      Cactus_Damaged_06_2: -1886487993
-      Cactus_Damaged_06_3: -786420612
-      Cactus_Damaged_06_4: 1000911490
-      Cactus_Damaged_06_5: -1022906547
-      Cactus_Damaged_06_6: -257081029
-      Cactus_Damaged_06_7: 1581753593
-      Cactus_Damaged_06_8: -1872033856
-      Cactus_Damaged_06_9: 1479882608
+      Cactus_Damaged_90_0: 843256856
+      Cactus_Damaged_90_1: 1199063557
+      Cactus_Damaged_90_10: -407929355
+      Cactus_Damaged_90_11: -2049804097
+      Cactus_Damaged_90_2: -1445066811
+      Cactus_Damaged_90_3: 1627799365
+      Cactus_Damaged_90_4: -389608933
+      Cactus_Damaged_90_5: -52806785
+      Cactus_Damaged_90_6: 1306553502
+      Cactus_Damaged_90_7: 34748313
+      Cactus_Damaged_90_8: -143447363
+      Cactus_Damaged_90_9: 999160687
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
