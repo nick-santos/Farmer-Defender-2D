@@ -27,6 +27,9 @@ public class WaveManager : MonoBehaviour
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
 
+    [Header("Sounds")]
+    public AudioSource audioWaveWarning;
+
     private int currentWave = 1;
     private float timeSinceLastSpawn;
     private int enemiesAlive;
@@ -90,6 +93,8 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator StartWave()
     {
+        audioWaveWarning.Play();
+        yield return new WaitForSeconds(5);
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
         yield return null;
