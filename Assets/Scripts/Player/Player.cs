@@ -127,6 +127,8 @@ public class Player : MonoBehaviour
         carriedObject.OnDrop();
 
         carriedObject = null;
+
+        TutorialManager.Instance.CompleteCurrentStep(TutorialStep.DropItem);
     }
 
     void UseItem()
@@ -171,6 +173,8 @@ public class Player : MonoBehaviour
 
             UpdateRangeVisual(usable.UseRange);
             rangeVisual.SetActive(true);
+
+            TutorialManager.Instance.CompleteCurrentStep(TutorialStep.UseWateringCan);
         }
     }
 
@@ -193,6 +197,12 @@ public class Player : MonoBehaviour
         moveY = Input.GetAxisRaw("Vertical");
 
         rb.MovePosition(transform.position + new Vector3(moveX, moveY, 0) * Time.deltaTime * speed);
+
+        if (moveX != 0 || moveY != 0)
+        {
+            Debug.Log("MOVED");
+            TutorialManager.Instance.CompleteCurrentStep(TutorialStep.Move);
+        }
     }
     
 }

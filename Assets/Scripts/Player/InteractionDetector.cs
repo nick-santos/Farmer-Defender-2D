@@ -28,6 +28,7 @@ public class InteractionDetector : MonoBehaviour
             else
             {
                 closestInteractable?.Interact(player);
+                TutorialManager.Instance.CompleteCurrentStep(TutorialStep.Interact);
             }
         }
     }

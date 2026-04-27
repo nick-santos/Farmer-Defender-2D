@@ -58,6 +58,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     {
         isCarried = true;
         StopFilling();
+        TutorialManager.Instance.CompleteCurrentStep(TutorialStep.PickWateringCan);
     }
 
     public void OnDrop()
@@ -79,9 +80,10 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
                 
                 if(SpendWater(plantNeededWater))
                 {
-                    //Debug.Log(currentWater);
                     UI.UpdateUI(currentWater);
                     target.GetComponent<WaterReceiver>().ReceiveWater();
+
+                    TutorialManager.Instance.CompleteCurrentStep(TutorialStep.WaterPlant);
                 }
             }
         }
@@ -99,6 +101,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 
     private IEnumerator FillWateringCan()
     {
+        TutorialManager.Instance.CompleteCurrentStep(TutorialStep.FillWateringCan);
         if (currentWater < wateringCanMax)
         {
             yield return new WaitForSeconds(fillCanTimeRate);

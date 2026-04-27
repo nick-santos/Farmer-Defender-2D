@@ -47,6 +47,7 @@ public class PlantObject : MonoBehaviour, IInteractable, ICarryable, IUsable
     public void OnPickup()
     {
         isCarried = true;
+        TutorialManager.Instance.CompleteCurrentStep(TutorialStep.PickPlant);
     }
 
     public void OnDrop()
