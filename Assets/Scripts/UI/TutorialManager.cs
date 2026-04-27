@@ -32,6 +32,9 @@ public class TutorialManager : MonoBehaviour
     [Header("Current Step")]
     public TutorialStep currentStep = TutorialStep.Move;
 
+    [Header("Sounds")]
+    public AudioSource stepCompletedAudio;
+
     private bool stepCompleted = false;
 
     void Awake()
@@ -111,6 +114,8 @@ public class TutorialManager : MonoBehaviour
         if (completedStep != currentStep) return;
 
         stepCompleted = true;
+
+        stepCompletedAudio.Play();
 
         Invoke("GoToNextStep", 1);
     }
