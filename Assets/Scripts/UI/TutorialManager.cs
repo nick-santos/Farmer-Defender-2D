@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum TutorialPhase
+{
+    Intro,
+    Farming,
+    Combat,
+    Exploration,
+    Finished,
+    Empty
+}
+
 public enum TutorialStep
 {
     Move,
@@ -13,12 +23,10 @@ public enum TutorialStep
     UseWateringCan,
     WaterPlant,
     PickPlant,
-    DestroyObstacle, // NEED TO ADD
-    ShootTarget,     // NEED TO ADD
-    AutoAttackInfo,
+    DestroyObstacle,
+    ShootTargetInfo,
     ExploreAndCollect,
-    WaveWarning,
-    Finished
+    Done
 }
 
 public class TutorialManager : MonoBehaviour
@@ -89,20 +97,23 @@ public class TutorialManager : MonoBehaviour
                 tutorialText.text = "Use the plant to destroy the obstacle";
                 break;
 
-            case TutorialStep.ShootTarget:
-                tutorialText.text = "Use the plant to hit the target";
+            case TutorialStep.ShootTargetInfo:
+                tutorialText.text = "You can use the plant to hit other things";
+                CompleteInfoStep();
                 break;
 
-            case TutorialStep.AutoAttackInfo:
-                tutorialText.text = "Some plants attack enemies automatically";
-                break;
+            // case TutorialStep.AutoAttackInfo:
+            //     tutorialText.text = "And plants attack enemies automatically";
+            //     CompleteInfoStep();
+            //     break;
 
             case TutorialStep.ExploreAndCollect:
                 tutorialText.text = "Explore the area and find new plant seedlings";
+                CompleteInfoStep();
                 break;
 
-            case TutorialStep.Finished:
-                tutorialText.text = "Now you're ready to protect your farm!";
+            case TutorialStep.Done:
+                FinishTutorial();
                 break;
         }
     }
@@ -120,12 +131,27 @@ public class TutorialManager : MonoBehaviour
         Invoke("GoToNextStep", 1);
     }
 
+    public void CompleteInfoStep()
+    {
+        if (stepCompleted) return;
+
+        stepCompleted = true;
+
+        Invoke("GoToNextStep", 5);
+    }
+
     void GoToNextStep()
     {
-        if (currentStep != TutorialStep.Finished)
+        if (currentStep != TutorialStep.Done)
         {
             currentStep++;
             UpdateTutorialUI();
         }
+    }
+
+    void FinishTutorial()
+    {
+        currentStep = TutorialStep.Done;
+        tutorialText.text = "";
     }
 }

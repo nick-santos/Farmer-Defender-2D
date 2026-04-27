@@ -200,7 +200,6 @@ public class Player : MonoBehaviour
 
         if (moveX != 0 || moveY != 0)
         {
-            Debug.Log("MOVED");
             TutorialManager.Instance.CompleteCurrentStep(TutorialStep.Move);
         }
     }
