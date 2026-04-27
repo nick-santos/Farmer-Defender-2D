@@ -6,7 +6,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 {
     public static WateringCan main;
 
-    public int currentWater;
+    public int currentWater = 3;
     public int wateringCanMax = 15;
     public float fillCanTimeRate = 1f;
 
@@ -31,7 +31,6 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     void Start()
     {
         UI = GetComponent<WateringCanUI>();
-        currentWater = 10;
         UI.UpdateUI(currentWater);
     }
 
@@ -101,7 +100,6 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
 
     private IEnumerator FillWateringCan()
     {
-        TutorialManager.Instance.CompleteCurrentStep(TutorialStep.FillWateringCan);
         if (currentWater < wateringCanMax)
         {
             yield return new WaitForSeconds(fillCanTimeRate);
@@ -110,6 +108,7 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
             UI.UpdateUI(currentWater);
             fillCanCoroutine = StartCoroutine(FillWateringCan());
         }
+        TutorialManager.Instance.CompleteCurrentStep(TutorialStep.FillWateringCan);
         yield return null;
     }
 

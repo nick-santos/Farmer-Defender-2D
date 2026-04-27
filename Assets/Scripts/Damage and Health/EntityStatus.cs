@@ -86,6 +86,12 @@ public class EntityStatus : MonoBehaviour
                     return;
                 }
             }
+
+            if (transform.tag == "Prop")
+            {
+                TutorialManager.Instance.CompleteCurrentStep(TutorialStep.DestroyObstacle);
+            }
+
             if (transform.tag != "Player")
             {
                 Destroy(this.gameObject);

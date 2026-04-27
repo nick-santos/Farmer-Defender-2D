@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Base
   - Well
+  - Prop
   layers:
   - Default
   - TransparentFX
