@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     float moveX;
     float moveY;
     bool isMoving;
+    //bool isFacingRight = true;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        // FlipSprite();
         
         UseItem();
     }
@@ -203,5 +205,16 @@ public class Player : MonoBehaviour
             TutorialManager.Instance.CompleteCurrentStep(TutorialStep.Move);
         }
     }
+
+    // void FlipSprite()
+    // {
+    //     if (isFacingRight && moveX < 0f || !isFacingRight && moveX > 0f)
+    //     {
+    //         isFacingRight = !isFacingRight;
+    //         Vector3 ls = transform.localScale;
+    //         ls.x *= -1f;
+    //         transform.localScale = ls;
+    //     }
+    // }
     
 }

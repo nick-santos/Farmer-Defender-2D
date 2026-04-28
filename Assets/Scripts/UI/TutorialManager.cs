@@ -22,10 +22,12 @@ public enum TutorialStep
     FillWateringCan,
     UseWateringCan,
     WaterPlant,
+    PlantCareInfo,
     PickPlant,
     DestroyObstacle,
     ShootTargetInfo,
     ExploreAndCollect,
+    // WaveWarning,
     Done
 }
 
@@ -82,11 +84,16 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case TutorialStep.UseWateringCan:
-                tutorialText.text = "Left click the watering can to use it";
+                tutorialText.text = "While holding the watering can, left click it";
                 break;
 
             case TutorialStep.WaterPlant:
-                tutorialText.text = "Water the damaged plant";
+                tutorialText.text = "Water the damaged plant by clicking in it";
+                break;
+
+            case TutorialStep.PlantCareInfo:
+                tutorialText.text = "Water heals plants and help them grow";
+                CompleteInfoStep();
                 break;
 
             case TutorialStep.PickPlant:
@@ -94,7 +101,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case TutorialStep.DestroyObstacle:
-                tutorialText.text = "Use the plant to destroy the obstacle";
+                tutorialText.text = "Click the plant and aim for a wooden prop";
                 break;
 
             case TutorialStep.ShootTargetInfo:
@@ -111,6 +118,11 @@ public class TutorialManager : MonoBehaviour
                 tutorialText.text = "Explore the area and find new plant seedlings";
                 CompleteInfoStep();
                 break;
+
+            // case TutorialStep.WaveWarning:
+            //     tutorialText.text = "";
+            //     CompleteInfoStep();
+            //     break;
 
             case TutorialStep.Done:
                 FinishTutorial();
