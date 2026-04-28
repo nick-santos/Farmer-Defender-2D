@@ -6,7 +6,7 @@ using TMPro;
 public enum TutorialPhase
 {
     Intro,
-    Farming,
+    Abilities,
     Combat,
     Exploration,
     Finished,

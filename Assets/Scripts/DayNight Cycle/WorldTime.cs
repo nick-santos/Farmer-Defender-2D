@@ -19,6 +19,8 @@ public class WorldTime : MonoBehaviour
 
     void Start()
     {
+        currentTime += TimeSpan.FromMinutes(420);
+        Debug.Log(currentTime.ToString(@"hh\:mm"));
         StartCoroutine(AddMinute());
     }
 

@@ -283,7 +283,7 @@ MonoBehaviour:
     m_Bits: 32768
   targetInRange: 5
   rotationSpeed: 200
-  projPerSec: 2
+  projPerSec: 1
 --- !u!114 &1288549618237642160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +306,8 @@ MonoBehaviour:
   timeWithoutWatering: 30
   canBeWatered: 1
   isSeedling: 1
+  timesWateredToGrow: 2
+  timesWatered: 0
 --- !u!114 &5253060481019579510
 MonoBehaviour:
   m_ObjectHideFlags: 0

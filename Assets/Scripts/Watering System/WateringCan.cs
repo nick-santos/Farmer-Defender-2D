@@ -21,7 +21,8 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
     private Coroutine fillCanCoroutine;
 
     private WateringCanUI UI;
-    public Animator anim;
+    public Animator animSprite;
+    public Animator animUI;
 
     private void Awake()
     {
@@ -127,13 +128,13 @@ public class WateringCan : MonoBehaviour, IInteractable, ICarryable, IUsable
         {
             currentWater -= amount;
             UI.UpdateUI(currentWater);
-            anim.SetTrigger("Water");
+            animSprite.SetTrigger("Water");
             return true;
         }
         else
         {
             Debug.Log("Not enough water");
-            anim.SetTrigger("CannotWater");
+            animUI.SetTrigger("CannotWater");
             return false;
         }
     }

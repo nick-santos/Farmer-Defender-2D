@@ -36,7 +36,7 @@ public class WaterReceiver : MonoBehaviour
     {
         canBeWatered = false;
         waterIcon.SetActive(false);
-        GetComponent<Shooter>().enabled = true;
+        if (!isSeedling) GetComponent<Shooter>().enabled = true;
 
         yield return new WaitForSeconds(timeWithoutWatering);
 

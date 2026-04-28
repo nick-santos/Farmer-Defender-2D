@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useRange: 3
-  healingFromWater: 1
+  healingFromWater: 2
 --- !u!114 &8132767718171391865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 32768
-  targetInRange: 5
+  targetInRange: 3
   rotationSpeed: 200
   projPerSec: 1
 --- !u!114 &989707436931895108
@@ -222,6 +222,8 @@ MonoBehaviour:
   timeWithoutWatering: 15
   canBeWatered: 1
   isSeedling: 1
+  timesWateredToGrow: 2
+  timesWatered: 0
 --- !u!114 &1869566783634287624
 MonoBehaviour:
   m_ObjectHideFlags: 0
