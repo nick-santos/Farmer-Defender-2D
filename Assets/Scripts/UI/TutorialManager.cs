@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using TMPro;
 
 public enum TutorialPhase
@@ -34,6 +35,8 @@ public enum TutorialStep
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance;
+
+    public event EventHandler IntroTutorialEnd;
 
     [Header("UI")]
     public TMP_Text tutorialText;
@@ -126,6 +129,7 @@ public class TutorialManager : MonoBehaviour
 
             case TutorialStep.Done:
                 FinishTutorial();
+                IntroTutorialEnd?.Invoke(this, EventArgs.Empty);
                 break;
         }
     }

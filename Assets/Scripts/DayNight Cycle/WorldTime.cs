@@ -17,10 +17,19 @@ public class WorldTime : MonoBehaviour
 
     private string nightTime = "19:00";
 
+    void Awake()
+    {
+        GetComponent<TutorialManager>().IntroTutorialEnd += OnIntroTutorialEnd;
+    }
+
     void Start()
     {
         currentTime += TimeSpan.FromMinutes(420);
         Debug.Log(currentTime.ToString(@"hh\:mm"));
+    }
+
+    private void OnIntroTutorialEnd(object sender, EventArgs e)
+    {
         StartCoroutine(AddMinute());
     }
 
