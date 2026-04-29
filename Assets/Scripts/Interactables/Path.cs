@@ -8,7 +8,7 @@ public class Path : MonoBehaviour
     public ButtonObject button;
     private bool active = false;
 
-    public float timeUntillDisabled = 10f;
+    public float timeUntillDisabled = 1f;
     private Coroutine pathActivationCoroutine;
 
     private SpriteRenderer sprite;
