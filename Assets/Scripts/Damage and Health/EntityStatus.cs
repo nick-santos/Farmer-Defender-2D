@@ -92,7 +92,7 @@ public class EntityStatus : MonoBehaviour
                 TutorialManager.Instance.CompleteCurrentStep(TutorialStep.DestroyObstacle);
             }
 
-            if (transform.tag != "Player")
+            if (transform.tag != "Player" && transform.tag != "Base")
             {
                 Destroy(this.gameObject);
             }

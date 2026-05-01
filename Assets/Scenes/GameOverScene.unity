@@ -467,8 +467,6 @@ GameObject:
   - component: {fileID: 440635559}
   - component: {fileID: 440635558}
   - component: {fileID: 440635557}
-  - component: {fileID: 440635556}
-  - component: {fileID: 440635555}
   m_Layer: 0
   m_Name: Base (Placeholder)
   m_TagString: Base
@@ -476,37 +474,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &440635555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440635554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0379dd277afd4f74e8483f170dffe3eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 60
-  maxHealthPoints: 60
-  team: 0
-  healEffectPrefab: {fileID: 3988490856238223438, guid: 09b2859fe763f4b429897a0504fb9ebd, type: 3}
-  damageEffectPrefab: {fileID: 3988490856238223438, guid: f9b9922db0b3c9c4199f6b9e42ccc1c0, type: 3}
-  effectSpawnPoint: {fileID: 0}
---- !u!114 &440635556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440635554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11e9bcab0a0706442bc2f95c1f9a8f09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 309488024}
 --- !u!58 &440635557
 CircleCollider2D:
   m_ObjectHideFlags: 0
