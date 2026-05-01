@@ -104,6 +104,10 @@ public class WaveManager : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0f;
+        if (currentWave >= 2)
+        {
+            Debug.Log("VENCEU AS WAVES");
+        }
         currentWave++;
     }
 

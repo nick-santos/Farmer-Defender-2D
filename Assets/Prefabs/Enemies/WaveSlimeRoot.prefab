@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 1487592591554056098}
   m_Layer: 15
   m_Name: WaveSlime
-  m_TagString: Enemy
+  m_TagString: Enemy/Wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,6 +383,9 @@ MonoBehaviour:
   healthPoints: 5
   maxHealthPoints: 5
   team: 1
+  healEffectPrefab: {fileID: 0}
+  damageEffectPrefab: {fileID: 0}
+  effectSpawnPoint: {fileID: 0}
 --- !u!1 &8912519823351008965
 GameObject:
   m_ObjectHideFlags: 0

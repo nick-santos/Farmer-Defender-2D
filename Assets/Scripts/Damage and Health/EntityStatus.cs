@@ -77,7 +77,7 @@ public class EntityStatus : MonoBehaviour
         {
             isDestroyed = true;
 
-            if (transform.tag == "Enemy")
+            if (transform.tag == "Enemy/Wave")
             {
                 WaveManager.onEnemyDestroy.Invoke();
                 if (transform.parent.gameObject != null)

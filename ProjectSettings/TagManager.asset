@@ -7,10 +7,11 @@ TagManager:
   - Plant
   - Projectile
   - Colliders/Hitbox
-  - Enemy
+  - Enemy/Default
   - Base
   - Well
   - Prop
+  - Enemy/Wave
   layers:
   - Default
   - TransparentFX
