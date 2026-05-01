@@ -6,6 +6,7 @@ using System;
 public class Gate : MonoBehaviour
 {
     public ButtonObject button;
+    public PressurePlate pressurePlate;
     private bool active = true;
 
     private SpriteRenderer sprite;
@@ -17,6 +18,10 @@ public class Gate : MonoBehaviour
         if (button != null)
         {
             button.OnButtonPressed += Event_OnButtonPressed;
+        }
+        if (pressurePlate != null)
+        {
+            pressurePlate.PressurePlateActivated += OnPressurePlateActivated;
         }
         sprite = GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();
@@ -30,4 +35,11 @@ public class Gate : MonoBehaviour
         col.enabled = active;
     }
 
+    private void OnPressurePlateActivated(object sender, EventArgs e)
+    {
+        active = false;
+        Debug.Log("The gate is " + active);
+        sprite.enabled = active;
+        col.enabled = active;
+    }
 }

@@ -236,8 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0379dd277afd4f74e8483f170dffe3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 10
-  maxHealthPoints: 10
+  healthPoints: 12
+  maxHealthPoints: 12
   team: 0
   healEffectPrefab: {fileID: 3988490856238223438, guid: 09b2859fe763f4b429897a0504fb9ebd, type: 3}
   damageEffectPrefab: {fileID: 3988490856238223438, guid: f9b9922db0b3c9c4199f6b9e42ccc1c0, type: 3}
