@@ -9,6 +9,8 @@ public class WaveManager : MonoBehaviour
 {
     //public static WaveManager main;
 
+    public event EventHandler WavesEnd;
+
     [Header("References")]
     public Transform baseTransform; // Center of radius
     public Camera targetCamera;
@@ -106,7 +108,7 @@ public class WaveManager : MonoBehaviour
         timeSinceLastSpawn = 0f;
         if (currentWave >= 2)
         {
-            Debug.Log("VENCEU AS WAVES");
+            WavesEnd?.Invoke(this, EventArgs.Empty);
         }
         currentWave++;
     }
