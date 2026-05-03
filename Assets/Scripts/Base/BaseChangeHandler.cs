@@ -47,12 +47,14 @@ public class BaseChangeHandler : MonoBehaviour, IInteractable
             {
                 // avisar que ainda nao pode
                 infoText.text = "Your current house was not fully protected yet";
+                Invoke("HideText", 5);
                 return;
             }
             if (alreadyInteracted)
             {
                 // na segunda vez, se mudar
                 infoText.text = "You moved in to this house :)";
+                Invoke("HideText", 5);
                 alreadyMoved = true;
                 ShowGameObject(DemoEndPanel);
                 return;
@@ -61,7 +63,6 @@ public class BaseChangeHandler : MonoBehaviour, IInteractable
             // perguntar se quer mesmo em UI
             infoText.text = "Press E again to move in to this house :)";
             alreadyInteracted = true;
-
             Invoke("HideText", 5);
         }
     }
