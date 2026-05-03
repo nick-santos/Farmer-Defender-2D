@@ -24,7 +24,7 @@ public class WorldTime : MonoBehaviour
 
     void Start()
     {
-        currentTime += TimeSpan.FromMinutes(420);
+        currentTime += TimeSpan.FromMinutes(900);
         Debug.Log(currentTime.ToString(@"hh\:mm"));
     }
 
@@ -39,6 +39,11 @@ public class WorldTime : MonoBehaviour
         WorldTimeChanged?.Invoke(this, currentTime);
         yield return new WaitForSeconds(minuteLength);
         //Debug.Log(currentTime.ToString(@"hh\:mm"));
+
+        if(currentTime.ToString(@"hh\:mm") == "18:00")
+        {
+            TutorialManager.Instance.CompleteCurrentStep(TutorialStep.WaitNight);
+        }
 
         if(currentTime.ToString(@"hh\:mm") == nightTime)
         {

@@ -19,7 +19,7 @@ public class WaveManager : MonoBehaviour
 
     [Header("Attributes")]
     public int baseEnemies = 8;
-    public float enemiesPerSecond = 0.5f;
+    public float enemiesPerSecond = 0.3f;
     public float timeBetweenWaves = 5f;
     public float difficultyScalingFactor = 0.75f;
 
@@ -116,6 +116,7 @@ public class WaveManager : MonoBehaviour
             wavesEnded = true;
         }
         currentWave++;
+        TutorialManager.Instance.CompleteCurrentStep(TutorialStep.WaitFinishWave);
     }
 
     bool SpawnEnemy()

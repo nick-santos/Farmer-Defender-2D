@@ -23,12 +23,17 @@ public enum TutorialStep
     FillWateringCan,
     UseWateringCan,
     WaterPlant,
-    PlantCareInfo,
+    PlantCareInfo1,
+    PlantCareInfo2,
+    WaitGrowth,
     PickPlant,
     DestroyObstacle,
     ShootTargetInfo,
+    WaitNight,
+    WaveWarning,
+    AutoAttackInfo,
+    WaitFinishWave,
     ExploreAndCollect,
-    // WaveWarning,
     Done
 }
 
@@ -67,11 +72,11 @@ public class TutorialManager : MonoBehaviour
         switch (currentStep)
         {
             case TutorialStep.Move:
-                tutorialText.text = "Use WASD to walk";
+                tutorialText.text = "Use WASD/Arrow Keys to walk";
                 break;
 
             case TutorialStep.Interact:
-                tutorialText.text = "Get closer and press E to interact/pick up";
+                tutorialText.text = "Press E to interact/pick up a object";
                 break;
 
             case TutorialStep.DropItem:
@@ -83,20 +88,29 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case TutorialStep.FillWateringCan:
-                tutorialText.text = "Take the watering can to the well to fill it";
+                tutorialText.text = "Watering can fills when close to the well";
                 break;
 
             case TutorialStep.UseWateringCan:
-                tutorialText.text = "While holding the watering can, left click it";
+                tutorialText.text = "While holding the watering can, click it";
                 break;
 
             case TutorialStep.WaterPlant:
-                tutorialText.text = "Water the damaged plant by clicking in it";
+                tutorialText.text = "Water plant by clicking in it";
                 break;
 
-            case TutorialStep.PlantCareInfo:
-                tutorialText.text = "Water heals plants and help them grow";
+            case TutorialStep.PlantCareInfo1:
+                tutorialText.text = "Your plants will warn you when they want water";
                 CompleteInfoStep();
+                break;
+
+            case TutorialStep.PlantCareInfo2:
+                tutorialText.text = "Water helps plants grow and heal.\nGrow your plant!";
+                CompleteInfoStep();
+                break;
+
+            case TutorialStep.WaitGrowth:
+                tutorialText.text = "";
                 break;
 
             case TutorialStep.PickPlant:
@@ -108,28 +122,36 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case TutorialStep.ShootTargetInfo:
-                tutorialText.text = "You can use the plant to hit other things";
+                tutorialText.text = "You can use your plant to hit other targets";
+                CompleteInfoStep();
+                IntroTutorialEnd?.Invoke(this, EventArgs.Empty);
+                break;
+
+            case TutorialStep.WaitNight:
+                tutorialText.text = "";
+                break;
+
+            case TutorialStep.WaveWarning:
+                tutorialText.text = "At night, monsters will go towards your house.\nPrepare yourself!";
                 CompleteInfoStep();
                 break;
 
-            // case TutorialStep.AutoAttackInfo:
-            //     tutorialText.text = "And plants attack enemies automatically";
-            //     CompleteInfoStep();
-            //     break;
+            case TutorialStep.AutoAttackInfo:
+                tutorialText.text = "Your plants will attack enemies automatically";
+                CompleteInfoStep();
+                break;
+
+            case TutorialStep.WaitFinishWave:
+                tutorialText.text = "";
+                break;
 
             case TutorialStep.ExploreAndCollect:
-                tutorialText.text = "Explore the area and find new plant seedlings";
+                tutorialText.text = "Explore the area and find new plant seedlings\nto help you protect your house";
                 CompleteInfoStep();
                 break;
-
-            // case TutorialStep.WaveWarning:
-            //     tutorialText.text = "";
-            //     CompleteInfoStep();
-            //     break;
 
             case TutorialStep.Done:
                 FinishTutorial();
-                IntroTutorialEnd?.Invoke(this, EventArgs.Empty);
                 break;
         }
     }

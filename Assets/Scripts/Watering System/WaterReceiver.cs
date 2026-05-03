@@ -68,6 +68,7 @@ public class WaterReceiver : MonoBehaviour
             {
                 if (plant != null) plant.OnGrow();
                 isSeedling = false;
+                TutorialManager.Instance.CompleteCurrentStep(TutorialStep.WaitGrowth);
             }
         }
 
