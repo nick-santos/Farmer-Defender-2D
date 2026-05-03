@@ -20,8 +20,10 @@ public class Shooter : MonoBehaviour, IPlantAbility
     
     private void OnDrawGizmosSelected() 
     {
+        #if UNITY_EDITOR
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(transform.position, transform.forward, targetInRange);
+        #endif
     }
 
     // Start is called before the first frame update

@@ -5995,7 +5995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7593e2c34e2e647aef935a3a7e2249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 5
   holdPoint: {fileID: 51142749}
   readyToUse: 0
   userTargetLayer:
