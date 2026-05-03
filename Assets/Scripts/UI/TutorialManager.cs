@@ -123,8 +123,8 @@ public class TutorialManager : MonoBehaviour
 
             case TutorialStep.ShootTargetInfo:
                 tutorialText.text = "You can use your plant to hit other targets";
-                CompleteInfoStep();
                 IntroTutorialEnd?.Invoke(this, EventArgs.Empty);
+                CompleteInfoStep();
                 break;
 
             case TutorialStep.WaitNight:

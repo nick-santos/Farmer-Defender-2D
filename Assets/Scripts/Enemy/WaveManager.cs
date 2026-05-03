@@ -33,6 +33,8 @@ public class WaveManager : MonoBehaviour
 
     [Header("Sounds")]
     public AudioSource audioWaveWarning;
+    public AudioSource waveWin;
+    public AudioSource allWavesCompleted;
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
@@ -119,6 +121,11 @@ public class WaveManager : MonoBehaviour
         {
             WavesEnd?.Invoke(this, EventArgs.Empty);
             wavesEnded = true;
+            allWavesCompleted.Play();
+        }
+        else
+        {
+            waveWin.Play();
         }
         currentWave++;
         TutorialManager.Instance.CompleteCurrentStep(TutorialStep.WaitFinishWave);

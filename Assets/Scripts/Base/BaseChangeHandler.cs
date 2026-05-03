@@ -11,6 +11,8 @@ public class BaseChangeHandler : MonoBehaviour, IInteractable
     public GameObject DemoEndPanel;
     public TMP_Text infoText;
 
+    public AudioSource demoCompleted;
+
     private bool canMoveToBase = false;
     private bool alreadyMoved = false;
     private bool alreadyInteracted = false;
@@ -57,6 +59,7 @@ public class BaseChangeHandler : MonoBehaviour, IInteractable
                 Invoke("HideText", 5);
                 alreadyMoved = true;
                 ShowGameObject(DemoEndPanel);
+                demoCompleted.Play();
                 return;
             }
 
