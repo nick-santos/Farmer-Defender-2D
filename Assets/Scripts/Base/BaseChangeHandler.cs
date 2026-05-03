@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class BaseChangeHandler : MonoBehaviour, IInteractable
 {
     public WaveManager waveManager;
 
     public GameObject DemoEndPanel;
+    public TMP_Text infoText;
 
     private bool canMoveToBase = false;
     private bool alreadyMoved = false;
@@ -40,24 +42,27 @@ public class BaseChangeHandler : MonoBehaviour, IInteractable
     {
         if (CanInteract())
         {
+            ShowGameObject(infoText.gameObject);
             if (!canMoveToBase)
             {
-                // avisar que ainda não pode
-                Debug.Log("Sua base atual ainda não foi protegida completamente");
+                // avisar que ainda nao pode
+                infoText.text = "Your current house was not fully protected yet";
                 return;
             }
             if (alreadyInteracted)
             {
                 // na segunda vez, se mudar
-                Debug.Log("Se mudou :D");
+                infoText.text = "You moved in to this house :)";
                 alreadyMoved = true;
-                ShowPanel();
+                ShowGameObject(DemoEndPanel);
                 return;
             }
 
             // perguntar se quer mesmo em UI
-            Debug.Log("Pressione E novamente para se mudar pra essa base");
+            infoText.text = "Press E again to move in to this house :)";
             alreadyInteracted = true;
+
+            Invoke("HideText", 5);
         }
     }
 
@@ -67,18 +72,23 @@ public class BaseChangeHandler : MonoBehaviour, IInteractable
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            HidePanel();
+            HideGameObject(DemoEndPanel);
         }
     }
 
-    void ShowPanel()
+    void ShowGameObject(GameObject gameObject)
     {
-        DemoEndPanel.SetActive(true);
+        gameObject.SetActive(true);
     }
 
-    void HidePanel()
+    void HideGameObject(GameObject gameObject)
     {
-        DemoEndPanel.SetActive(false);
+        gameObject.SetActive(false);
+    }
+
+    void HideText()
+    {
+        infoText.gameObject.SetActive(false);
     }
 
 }
