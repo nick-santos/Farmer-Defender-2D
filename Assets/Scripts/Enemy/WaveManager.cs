@@ -16,6 +16,8 @@ public class WaveManager : MonoBehaviour
     public Camera targetCamera;
     public GameObject[] enemyPrefabs;
     public WorldTime worldTime;
+    public GameObject WarningText;
+    public Animator WaveCountAnim;
 
     [Header("Attributes")]
     public int baseEnemies = 8;
@@ -89,6 +91,7 @@ public class WaveManager : MonoBehaviour
         {
             Debug.Log("NIGHT");
             StartCoroutine(StartWave());
+            ShowWarning();
         }
     }
 
@@ -108,6 +111,8 @@ public class WaveManager : MonoBehaviour
 
     void EndWave()
     {
+        WaveCountAnim.SetInteger("WaveWin", currentWave);
+
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         if (currentWave >= 5)
@@ -166,4 +171,14 @@ public class WaveManager : MonoBehaviour
         return inViewportWidth && inViewportHeight && inFrontOfCamera;
     }
 
+    void ShowWarning()
+    {
+        WarningText.SetActive(true);
+        Invoke("HideWarning", 5);
+    }
+
+    void HideWarning()
+    {
+        WarningText.SetActive(false);
+    }
 }
