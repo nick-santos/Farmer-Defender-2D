@@ -7,6 +7,8 @@ public class BaseChangeHandler : MonoBehaviour, IInteractable
 {
     public WaveManager waveManager;
 
+    public GameObject DemoEndPanel;
+
     private bool canMoveToBase = false;
     private bool alreadyMoved = false;
     private bool alreadyInteracted = false;
@@ -49,6 +51,7 @@ public class BaseChangeHandler : MonoBehaviour, IInteractable
                 // na segunda vez, se mudar
                 Debug.Log("Se mudou :D");
                 alreadyMoved = true;
+                ShowPanel();
                 return;
             }
 
@@ -56,6 +59,26 @@ public class BaseChangeHandler : MonoBehaviour, IInteractable
             Debug.Log("Pressione E novamente para se mudar pra essa base");
             alreadyInteracted = true;
         }
+    }
+
+    void Update()
+    {
+        if (!alreadyMoved) return;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            HidePanel();
+        }
+    }
+
+    void ShowPanel()
+    {
+        DemoEndPanel.SetActive(true);
+    }
+
+    void HidePanel()
+    {
+        DemoEndPanel.SetActive(false);
     }
 
 }

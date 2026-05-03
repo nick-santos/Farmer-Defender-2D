@@ -37,6 +37,7 @@ public class WaveManager : MonoBehaviour
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    private bool wavesEnded = false;
     
     void Awake()
     {
@@ -84,8 +85,11 @@ public class WaveManager : MonoBehaviour
 
     private void OnNightTime(object sender, EventArgs e)
     {
-        Debug.Log("NIGHT");
-        StartCoroutine(StartWave());
+        if (!wavesEnded)
+        {
+            Debug.Log("NIGHT");
+            StartCoroutine(StartWave());
+        }
     }
 
     private void EnemyDestroyed()
@@ -106,9 +110,10 @@ public class WaveManager : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0f;
-        if (currentWave >= 2)
+        if (currentWave >= 5)
         {
             WavesEnd?.Invoke(this, EventArgs.Empty);
+            wavesEnded = true;
         }
         currentWave++;
     }
